@@ -10,5 +10,32 @@ export default defineNuxtConfig({
     plugins: [tailwindcss()],
   },
 
-  modules: ["vue3-carousel-nuxt"],
+  modules: ["vue3-carousel-nuxt", "@nuxtjs/seo"],
+
+  site: {
+    // url: "https://example.com",
+    name: "Rafael García",
+    description: "Welcome to my awesome site!",
+    // defaultLocale: "es", // not needed if you have @nuxtjs/i18n installed
+  },
+
+  ogImage: {
+    enabled: false,
+  },
+  sitemap: {
+    enabled: false,
+  },
+  robots: {
+    enabled: false,
+  },
+  seo: {
+    // seo utils
+    enabled: true,
+  },
+  schemaOrg: {
+    enabled: false,
+  },
+  linkChecker: {
+    enabled: false,
+  },
 });
