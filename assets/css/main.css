@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+    --color-*: initial;
+
+    --color-white: #fff;
+
+    --color-primary: #313745;
+    --color-paragraph: #757f8a;
+    --color-muted: #e5ebec;
+    --color-secondary-estabilizar: #fc4242;
+    --color-secondary-sanar: #42a8fc;
+    --color-secondary-crecer: #fe8441;
+
+    --font-literata: "Literata", serif;
+    --font-public: "Public Sans", sans-serif;
+}
+
+@layer base {
+    html {
+        @apply scroll-smooth;
+    }
+
+    body {
+        @apply bg-gradient-to-r from-secondary-sanar/10 to-secondary-crecer/10;
+    }
+}
+
+@layer components {
+    .btn {
+        @apply inline-flex space-x-2.5 cursor-pointer transform-none rounded-4xl px-9 py-3.5 font-public text-base font-semibold leading-6 tracking-normal break-words transition-all duration-300 ease-in [box-sizing:border-box] border-none [tab-size:4] [-webkit-text-size-adjust:100%] [-webkit-tap-highlight-color:transparent] [font-feature-settings:normal] [font-variation-settings:normal];
+
+        &.primary {
+            @apply bg-primary hover:bg-secondary-crecer text-white;
+        }
+
+        &.estabilizar {
+            @apply bg-secondary-estabilizar hover:bg-primary text-white;
+        }
+
+        &.sanar {
+            @apply bg-secondary-sanar hover:bg-primary text-white;
+        }
+
+        &.crecer {
+            @apply bg-secondary-crecer hover:bg-primary text-white;
+        }
+    }
+
+    .link {
+        @apply inline-flex space-x-2.5 cursor-pointer transform-none font-public text-base font-semibold leading-6 tracking-normal break-words transition-all duration-300 ease-in [box-sizing:border-box] border-none [tab-size:4] [-webkit-text-size-adjust:100%] [-webkit-tap-highlight-color:transparent] [font-feature-settings:normal] [font-variation-settings:normal] hover:underline underline-offset-8;
+
+        &.primary {
+            @apply text-primary hover:text-secondary-crecer;
+        }
+
+        &.estabilizar {
+            @apply text-secondary-estabilizar hover:text-primary;
+        }
+
+        &.sanar {
+            @apply text-secondary-sanar hover:text-primary;
+        }
+
+        &.crecer {
+            @apply text-secondary-crecer hover:text-primary;
+        }
+    }
+
+    .title {
+        @apply font-literata [-webkit-text-size-adjust:100%] font-light tracking-[-1px] leading-[1.1em] decoration-2 decoration-primary decoration-solid break-words underline-offset-8;
+
+        &.title--headline {
+            @apply text-4xl md:text-6xl;
+        }
+
+        &.title--element {
+            @apply text-lg md:text-2xl;
+        }
+    }
+
+    .uppertitle {
+        @apply uppercase font-light text-paragraph text-sm tracking-[2px] leading-[1.45em];
+    }
+
+    .paragraph,
+    p {
+        @apply text-paragraph text-lg xl:text-xl leading-normal tracking-normal font-public font-light [-webkit-text-size-adjust:100%] break-words decoration-2 decoration-primary decoration-solid underline-offset-4;
+    }
+
+    /* Header */
+    .header-nav {
+        @apply flex items-center justify-center space-x-5;
+
+        &>li {
+            @apply inline-flex space-x-2.5 cursor-pointer transform-none rounded-4xl px-2.5 py-1.5 font-public text-base font-normal leading-6 tracking-normal break-words transition-all duration-300 ease-in [box-sizing:border-box] border-2 border-transparent hover:border-primary [tab-size:4] [-webkit-text-size-adjust:100%] [-webkit-tap-highlight-color:transparent] [font-feature-settings:normal] [font-variation-settings:normal];
+
+            &>a {
+                @apply inline-flex items-center justify-center space-x-1.5
+            }
+        }
+    }
+
+}
+
+@layer utility {
+    /* .container {
+        @apply mx-auto w-full px-4;
+
+        @variant sm {
+            @apply px-6;
+        }
+
+        @variant md {
+            @apply px-8;
+        }
+
+        @variant lg {
+            @apply px-10 max-w-screen-lg;
+        }
+
+        @variant xl {
+            @apply px-12 max-w-screen-xl;
+        }
+    } */
+}
+
+.marquee {
+    animation-name: marquee;
+    animation-duration: 200s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+    animation-direction: normal;
+}
+.marquee:hover {
+    animation-play-state: paused;
+
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
