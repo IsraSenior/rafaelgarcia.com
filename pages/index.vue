@@ -76,23 +76,23 @@ const words = ref([
             </div>
         </section> -->
 
-        <section class="py-16 lg:py-32 overflow-x-hidden">
+        <section class="py-16 lg:pt-16 lg:pb-32 overflow-x-hidden">
             <div class="container mx-auto px-20">
                 <h2 class="title title--headline text-primary text-center max-w-3xl mx-auto">Encuentra el equilibrio y
                     <b><i>despliega <u class="decoration-secondary-crecer">tu potencial</u></i></b>
                 </h2>
 
-                <div class="space-y-72 mt-96">
-                    <article class="relative flex items-center justify-between w-full gap-20">
+                <div class="space-y-32 mt-96">
+                    <article class="relative flex items-center justify-between w-full gap-10">
                         <IllustrationLine1 class="absolute -top-1/4 left-0 -translate-y-1/2 -translate-x-1/6"
                             color="text-white" />
-                        <div class="flex items-center w-2/5 order-1">
+                        <div class="flex items-center justify-center px-12 py-10 w-1/2 order-1 bg-primary rounded-[40px]">
                             <div class="space-y-5">
-                                <h3 class="uppertitle">Para qué iniciar este camino?</h3>
-                                <h4 class="title title--headline text-primary">
+                                <h3 class="uppertitle text-white">¿Para qué iniciar este camino?</h3>
+                                <h4 class="title title--headline text-white">
                                     Transforma tu crisis y recupera el <b><i>rumbo de tu vida</i></b>
                                 </h4>
-                                <p>Con la combinación de mi experiencia clínica, transpersonal y organizacional, te
+                                <p class="text-white">Con la combinación de mi experiencia clínica, transpersonal y organizacional, te
                                     ofezco una guía profunda para tu transformación personal y profesional.
                                 </p>
                                 <button class="btn estabilizar mt-10">
@@ -112,16 +112,16 @@ const words = ref([
                         </div>
                     </article>
 
-                    <article class="relative flex items-center justify-between w-full gap-20">
+                    <article class="relative flex items-center justify-between w-full gap-10">
                         <IllustrationLine2 class="absolute top-0 right-0 -translate-y-full translate-x-full"
                             color="text-white" />
-                        <div class="flex items-center w-2/5">
+                        <div class="flex items-center w-1/2 bg-primary rounded-[40px] px-12 py-10">
                             <div class="space-y-5">
-                                <h3 class="uppertitle">Hecho para ti</h3>
-                                <h4 class="title title--headline text-primary">
+                                <h3 class="uppertitle text-white">Hecho para ti</h3>
+                                <h4 class="title title--headline text-white">
                                     Tu Camino hacia el <b><i>Bienestar y la Transformación</i></b>
                                 </h4>
-                                <p>Una gama de programas y talleres diseñados para acompañarte en tu viaje de desarrollo
+                                <p class="text-white">Una gama de programas y talleres diseñados para acompañarte en tu viaje de desarrollo
                                     personal.</p>
 
                                 <div class="mt-10 space-x-5">
@@ -152,16 +152,16 @@ const words = ref([
                         </div>
                     </article>
 
-                    <article class="relative flex items-center justify-between w-full gap-20">
+                    <article class="relative flex items-center justify-between w-full gap-10">
                         <IllustrationLine3 class="absolute -top-1/4 left-0 -translate-y-1/2 -translate-x-full"
                             color="text-white" />
-                        <div class="flex items-center w-2/5 order-1">
+                        <div class="flex items-center h-full w-1/2 bg-primary rounded-[40px] px-12 py-10 order-1">
                             <div class="space-y-5">
-                                <h3 class="uppertitle">Inicia ahora</h3>
-                                <h4 class="title title--headline text-primary">
+                                <h3 class="uppertitle text-white">Inicia ahora</h3>
+                                <h4 class="title title--headline text-white">
                                     Descubre <br> <b><i>Tu Punto de Partida</i></b>
                                 </h4>
-                                <p>Responde unas breves preguntas para identificar tus necesidades actuales y encontrar
+                                <p class="text-white">Responde unas breves preguntas para identificar tus necesidades actuales y encontrar
                                     el programa perfecto para ti.</p>
                                 <button class="btn crecer mt-10">
                                     <span>Realizar el Test</span>
