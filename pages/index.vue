@@ -38,13 +38,14 @@ const words = ref([
 </script>
 
 <template>
-    <div>
+    <div class="">
         <section>
             <div class="container mx-auto rounded-[40px] bg-white mt-10 py-24 px-20 relative">
                 <div class="flex">
                     <div class="max-w-2xl space-y-5">
                         <h1 class="title title--headline text-primary font-normal !text-5xl">Transforma tu crisis y
-                            recupera el <b><i>rumbo de tu vida <u class="decoration-secondary-crecer">con tus propios recursos</u></i></b></h1>
+                            recupera el <b><i>rumbo de tu vida <u class="decoration-secondary-crecer">con tus propios
+                                        recursos</u></i></b></h1>
                         <p>Convierte tus crisis en aprendizaje, sabiduría, sanación y crecimiento</p>
 
                         <button class="btn crecer mt-10">
@@ -76,23 +77,25 @@ const words = ref([
             </div>
         </section> -->
 
-        <section class="py-16 lg:pt-16 lg:pb-32 overflow-x-hidden">
+        <section class="py-16 lg:py-32 overflow-x-hidden">
             <div class="container mx-auto px-20">
                 <h2 class="title title--headline text-primary text-center max-w-3xl mx-auto">Encuentra el equilibrio y
                     <b><i>despliega <u class="decoration-secondary-crecer">tu potencial</u></i></b>
                 </h2>
 
-                <div class="space-y-32 mt-96">
+                <div class="space-y-72 mt-96">
                     <article class="relative flex items-center justify-between w-full gap-10">
                         <IllustrationLine1 class="absolute -top-1/4 left-0 -translate-y-1/2 -translate-x-1/6"
                             color="text-white" />
-                        <div class="flex items-center justify-center px-12 py-10 w-1/2 order-1 bg-primary rounded-[40px]">
+                        <div
+                            class="flex items-center justify-center px-12 py-10 w-1/2 order-1 bg-primary rounded-[40px]">
                             <div class="space-y-5">
                                 <h3 class="uppertitle text-white">¿Para qué iniciar este camino?</h3>
                                 <h4 class="title title--headline text-white">
                                     Transforma tu crisis y recupera el <b><i>rumbo de tu vida</i></b>
                                 </h4>
-                                <p class="text-white">Con la combinación de mi experiencia clínica, transpersonal y organizacional, te
+                                <p class="text-white">Con la combinación de mi experiencia clínica, transpersonal y
+                                    organizacional, te
                                     ofezco una guía profunda para tu transformación personal y profesional.
                                 </p>
                                 <button class="btn estabilizar mt-10">
@@ -115,13 +118,14 @@ const words = ref([
                     <article class="relative flex items-center justify-between w-full gap-10">
                         <IllustrationLine2 class="absolute top-0 right-0 -translate-y-full translate-x-full"
                             color="text-white" />
-                        <div class="flex items-center w-1/2 bg-primary rounded-[40px] px-12 py-10">
+                        <div class="flex items-center w-1/2 bg-white rounded-[40px] px-12 py-10">
                             <div class="space-y-5">
-                                <h3 class="uppertitle text-white">Hecho para ti</h3>
-                                <h4 class="title title--headline text-white">
+                                <h3 class="uppertitle">Hecho para ti</h3>
+                                <h4 class="title title--headline text-primary">
                                     Tu Camino hacia el <b><i>Bienestar y la Transformación</i></b>
                                 </h4>
-                                <p class="text-white">Una gama de programas y talleres diseñados para acompañarte en tu viaje de desarrollo
+                                <p class="">Una gama de programas y talleres diseñados para acompañarte en tu
+                                    viaje de desarrollo
                                     personal.</p>
 
                                 <div class="mt-10 space-x-5">
@@ -152,11 +156,9 @@ const words = ref([
                         </div>
                     </article>
 
-                    <article class="relative flex items-center justify-between w-full gap-10">
-                        <IllustrationLine3 class="absolute -top-1/4 left-0 -translate-y-1/2 -translate-x-full"
-                            color="text-white" />
-                        <div class="flex items-center h-full w-1/2 bg-primary rounded-[40px] px-12 py-10 order-1">
-                            <div class="space-y-5">
+                    <article class="container mx-auto rounded-[40px] bg-primary mt-10 py-24 px-20 relative">
+                        <div class="flex justify-end">
+                            <div class="max-w-2xl space-y-5 pl-20">
                                 <h3 class="uppertitle text-white">Inicia ahora</h3>
                                 <h4 class="title title--headline text-white">
                                     Descubre <br> <b><i>Tu Punto de Partida</i></b>
@@ -173,35 +175,61 @@ const words = ref([
                                     </svg>
                                 </button>
                             </div>
+                            <img src="/home-10.png" alt=""
+                                class="aspect-square w-full overflow-hidden rounded-4xl object-cover group-hover:opacity-75 sm:aspect-2/3 absolute max-w-lg left-20 top-[-40px] h-[calc(100%+80px)] drop-shadow-2xl drop-shadow-primary/5">
+                        </div>
+                    </article>
+
+                    <!-- <article class="relative flex items-center justify-between w-full gap-10">
+                        <IllustrationLine3 class="absolute -top-1/4 left-0 -translate-y-1/2 -translate-x-full"
+                            color="text-white" />
+                        <div class="flex items-center h-full w-1/2 bg-white rounded-[40px] px-12 py-10 order-1">
+                            <div class="space-y-5">
+                                <h3 class="uppertitle">Inicia ahora</h3>
+                                <h4 class="title title--headline text-primary">
+                                    Descubre <br> <b><i>Tu Punto de Partida</i></b>
+                                </h4>
+                                <p>Responde unas breves preguntas para identificar tus necesidades actuales y encontrar
+                                    el programa perfecto para ti.</p>
+                                <button class="btn crecer mt-10">
+                                    <span>Realizar el Test</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                        class="size-6">
+                                        <path fill-rule="evenodd"
+                                            d="M12.97 3.97a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06l6.22-6.22H3a.75.75 0 0 1 0-1.5h16.19l-6.22-6.22a.75.75 0 0 1 0-1.06Z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                            </div>
                         </div>
                         <div class="w-1/2">
                             <img src="/home-10.png" alt=""
                                 class="aspect-square w-full overflow-hidden rounded-4xl object-cover group-hover:opacity-75 sm:aspect-5/4 drop-shadow-2xl drop-shadow-muted">
                         </div>
-                    </article>
+                    </article> -->
+                </div>
+            </div>
+        </section>
+
+        <section clasS="py-16 md:py-32 bg-muted">
+            <div class="container mx-auto px-20">
+                <h2 class="title title--headline text-primary text-center max-w-3xl mx-auto">
+                    Te acompaño desde una <b><i><u class="decoration-secondary-crecer">visión integral</u></i></b>
+                </h2>
+                <VideoPlayer class="mt-16" />
+
+            </div>
+            <div class="flex overflow-hidden mt-16">
+                <div class="flex grow-0 shrink-0 basis-auto items-center marquee">
+                    <span v-for="(word, index) in words" :key="index"
+                        class="title title--element text-primary block py-2 px-20 tracking-widest">{{ word }}</span>
                 </div>
             </div>
         </section>
 
         <section clasS="py-16 md:py-32 bg-primary">
             <div class="container mx-auto px-20">
-                <h2 class="title title--headline text-white text-center max-w-3xl mx-auto">
-                    Te acompaño desde una <b><i><u class="decoration-secondary-crecer">visión integral</u></i></b>
-                </h2>
-                <VideoPlayer class="mt-16" />
-
-            </div>
-            <div class="flex overflow-hidden mt-16 bg-primary">
-                <div class="flex grow-0 shrink-0 basis-auto items-center marquee">
-                    <span v-for="(word, index) in words" :key="index"
-                        class="title title--element text-white block py-2 px-20 tracking-widest">{{ word }}</span>
-                </div>
-            </div>
-        </section>
-
-        <section clasS="py-16 md:py-32">
-            <div class="container mx-auto px-20">
-                <h2 class="title title--headline text-primary text-center">
+                <h2 class="title title--headline text-white text-center">
                     ¿Cómo funciona <b><i><u class="decoration-secondary-crecer max-w-3xl mx-auto">Camino
                                 Vital</u></i></b> ?
                 </h2>
@@ -210,7 +238,7 @@ const words = ref([
                     <!-- <img src="/ilustracion-spiral.svg"
                         class="absolute top-1/4 left-32 scale-x-[-1] -translate-y-1/2 -translate-x-full" /> -->
                     <div class="space-y-5 relative">
-                        <article class="bg-white rounded-4xl p-10 flex space-x-10">
+                        <article class="bg-muted rounded-4xl p-10 flex space-x-10">
                             <div>
                                 <span class="title title--headline !text-secondary-crecer">3</span>
                             </div>
@@ -221,7 +249,7 @@ const words = ref([
                             </div>
                         </article>
 
-                        <article class="bg-white rounded-4xl p-10 flex space-x-10">
+                        <article class="bg-muted rounded-4xl p-10 flex space-x-10">
                             <div>
                                 <span class="title title--headline !text-secondary-sanar">2</span>
                             </div>
@@ -232,7 +260,7 @@ const words = ref([
                             </div>
                         </article>
 
-                        <article class="bg-white rounded-4xl p-10 flex space-x-10">
+                        <article class="bg-muted rounded-4xl p-10 flex space-x-10">
                             <div>
                                 <span class="title title--headline !text-secondary-estabilizar">1</span>
                             </div>
@@ -396,8 +424,10 @@ const words = ref([
                 </div>
 
                 <div class="mt-16 grid grid-cols-3 gap-10">
-                    <BlogTeaser image="/vista-frontal-mujer-meditando-en-estera.jpg" title="Mi primera experiencia con la respiración Holotrópica" />
-                    <BlogTeaser image="/proceso-de-curacion-de-la-mujer-de-vista-frontal.jpg" title="Regulación Emocional" />
+                    <BlogTeaser image="/vista-frontal-mujer-meditando-en-estera.jpg"
+                        title="Mi primera experiencia con la respiración Holotrópica" />
+                    <BlogTeaser image="/proceso-de-curacion-de-la-mujer-de-vista-frontal.jpg"
+                        title="Regulación Emocional" />
                     <BlogTeaser image="/concepto-de-lifestyle-de-chica-adolescente.jpg" title="Vive un día a la vez" />
                 </div>
 
