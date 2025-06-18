@@ -6,10 +6,10 @@
    <header>
       <BannerAnnouncement />
 
-      <nav class="container mx-auto py-12 px-20 rounded-full">
+      <nav class="py-12 px-20 bg-primary">
          <div class="flex justify-between items-center">
             <div class="flex items-center justify-start space-x-10 ">
-               <Logo class="h-12" secondary="text-secondary-crecer" />
+               <Logo class="h-12 lg:h-14" primary="text-white" secondary="text-white" />
 
                <ul class="header-nav">
                   <li><a href="#"><span>Sobre mí</span></a></li>
@@ -27,15 +27,15 @@
                </ul>
             </div>
             <div class="space-x-5">
-               <a class="link primary underline" href="#">Contacto</a>
-               <button class="btn primary">
+               <a class="link white underline" href="#">Contacto</a>
+               <NuxtLink to="test" class="btn crecer">
                   <span>Empieza Ahora</span>
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                      <path fill-rule="evenodd"
                         d="M12.97 3.97a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06l6.22-6.22H3a.75.75 0 0 1 0-1.5h16.19l-6.22-6.22a.75.75 0 0 1 0-1.06Z"
                         clip-rule="evenodd" />
                   </svg>
-               </button>
+               </NuxtLink>
             </div>
          </div>
       </nav>

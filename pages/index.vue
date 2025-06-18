@@ -42,11 +42,10 @@ const words = ref([
         <section>
             <div class="container mx-auto rounded-[40px] bg-white mt-10 py-24 px-20 relative">
                 <div class="flex">
-                    <div class="max-w-lg space-y-5">
-                        <h1 class="title title--headline text-primary font-normal !text-6xl">Transforma tu crisis y
-                            recupera el <b><i>rumbo de <u class="decoration-secondary-crecer">tu vida</u></i></b></h1>
-                        <p>Conectate con los estados de bienestar en tu día a día y conviértete en aquello que puedes
-                            llegar a ser.</p>
+                    <div class="max-w-2xl space-y-5">
+                        <h1 class="title title--headline text-primary font-normal !text-5xl">Transforma tu crisis y
+                            recupera el <b><i>rumbo de tu vida <u class="decoration-secondary-crecer">con tus propios recursos</u></i></b></h1>
+                        <p>Convierte tus crisis en aprendizaje, sabiduría, sanación y crecimiento</p>
 
                         <button class="btn crecer mt-10">
                             <span>Comienza Tu Camino</span>
@@ -64,7 +63,7 @@ const words = ref([
             </div>
         </section>
 
-        <section class="py-16">
+        <!-- <section class="py-16">
             <div class="container mx-auto px-20">
                 <p class="font-semibold">Empresas que confiaron en este camino:</p>
 
@@ -75,7 +74,7 @@ const words = ref([
                     </li>
                 </ul>
             </div>
-        </section>
+        </section> -->
 
         <section class="py-16 lg:py-32 overflow-x-hidden">
             <div class="container mx-auto px-20">
@@ -89,7 +88,7 @@ const words = ref([
                             color="text-white" />
                         <div class="flex items-center w-2/5 order-1">
                             <div class="space-y-5">
-                                <h3 class="uppertitle">¿Por qué iniciar este camino?</h3>
+                                <h3 class="uppertitle">Para qué iniciar este camino?</h3>
                                 <h4 class="title title--headline text-primary">
                                     Transforma tu crisis y recupera el <b><i>rumbo de tu vida</i></b>
                                 </h4>
@@ -184,18 +183,18 @@ const words = ref([
             </div>
         </section>
 
-        <section clasS="py-16 md:py-32">
+        <section clasS="py-16 md:py-32 bg-primary">
             <div class="container mx-auto px-20">
-                <h2 class="title title--headline text-primary text-center max-w-3xl mx-auto">
+                <h2 class="title title--headline text-white text-center max-w-3xl mx-auto">
                     Te acompaño desde una <b><i><u class="decoration-secondary-crecer">visión integral</u></i></b>
                 </h2>
                 <VideoPlayer class="mt-16" />
 
             </div>
-            <div class="flex overflow-hidden mt-16">
+            <div class="flex overflow-hidden mt-16 bg-primary">
                 <div class="flex grow-0 shrink-0 basis-auto items-center marquee">
                     <span v-for="(word, index) in words" :key="index"
-                        class="title title--element block py-2 px-20 tracking-widest">{{ word }}</span>
+                        class="title title--element text-white block py-2 px-20 tracking-widest">{{ word }}</span>
                 </div>
             </div>
         </section>
@@ -208,8 +207,8 @@ const words = ref([
                 </h2>
 
                 <div class="relative grid grid-cols-1 md:grid-cols-2 gap-20 mt-16">
-                    <img src="/ilustracion-spiral.svg"
-                        class="absolute top-1/4 left-32 scale-x-[-1] -translate-y-1/2 -translate-x-full" />
+                    <!-- <img src="/ilustracion-spiral.svg"
+                        class="absolute top-1/4 left-32 scale-x-[-1] -translate-y-1/2 -translate-x-full" /> -->
                     <div class="space-y-5 relative">
                         <article class="bg-white rounded-4xl p-10 flex space-x-10">
                             <div>
@@ -244,8 +243,8 @@ const words = ref([
                         </article>
                     </div>
                     <div>
-                        <img src="/home-11.png" alt=""
-                            class="aspect-square w-full overflow-hidden rounded-4xl object-cover group-hover:opacity-75 drop-shadow-2xl drop-shadow-muted">
+                        <!-- <img src="/home-11.png" alt=""
+                            class="aspect-square w-full overflow-hidden rounded-4xl object-cover group-hover:opacity-75 drop-shadow-2xl drop-shadow-muted"> -->
                     </div>
 
                     <div class="flex items-center justify-center md:col-span-2">
@@ -335,7 +334,7 @@ const words = ref([
 
         <section class="py-16 md:py-32">
             <div class="container mx-auto">
-                <div class="bg-white rounded-4xl p-10">
+                <div class="bg-primary rounded-4xl p-10">
                     <article class="relative min-h-[60vh] flex items-center justify-start px-20">
                         <img src="/home-1-7.webp" alt=""
                             class="w-full h-full absolute inset-0 overflow-hidden rounded-4xl object-cover object-center">
@@ -365,23 +364,23 @@ const words = ref([
 
                     <div class="pt-10 grid grid-cols-1 md:grid-cols-4 px-20 divide-dashed divide-x-2 divide-muted">
                         <div class="space-y-5 text-center">
-                            <p class="text-primary title title--headline">10</p>
-                            <p class="text-primary title title--element">Therapists</p>
+                            <p class="text-white title title--headline">10</p>
+                            <p class="text-white title title--element">Therapists</p>
                         </div>
 
                         <div class="space-y-5 text-center">
-                            <p class="text-primary title title--headline">59</p>
-                            <p class="text-primary title title--element">Specialties</p>
+                            <p class="text-white title title--headline">59</p>
+                            <p class="text-white title title--element">Specialties</p>
                         </div>
 
                         <div class="space-y-5 text-center">
-                            <p class="text-primary title title--headline">4</p>
-                            <p class="text-primary title title--element">Services</p>
+                            <p class="text-white title title--headline">4</p>
+                            <p class="text-white title title--element">Services</p>
                         </div>
 
                         <div class="space-y-5 text-center">
-                            <p class="text-primary title title--headline">1</p>
-                            <p class="text-primary title title--element">Location</p>
+                            <p class="text-white title title--headline">1</p>
+                            <p class="text-white title title--element">Location</p>
                         </div>
                     </div>
                 </div>
@@ -438,9 +437,9 @@ const words = ref([
             </div>
         </section>
 
-        <section class="py-16">
-            <div class="container mx-auto">
-                <div class="bg-white rounded-4xl p-10">
+        <section class="">
+            <div class=" mx-auto">
+                <div class="bg-primary rounded-t-[40px] p-10">
                     <article class="relative min-h-[60vh] flex items-center justify-start px-20">
                         <img src="/home-6.png" alt=""
                             class="w-full h-full absolute inset-0 transform scale-x-[-1] overflow-hidden rounded-4xl object-cover object-center">

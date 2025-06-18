@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <footer class="bg-primary rounded-t-[40px] py-16">
+    <footer class="bg-primary py-16">
         <div class="container mx-auto px-20">
             <div class="pb-12 grid grid-cols-2 md:grid-cols-5 gap-20">
                 <div class="md:col-span-2">
