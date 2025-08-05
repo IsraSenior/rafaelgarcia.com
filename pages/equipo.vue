@@ -3,37 +3,37 @@ const posts = [
     {
         name: "Mark Hoffman",
         title: "Neuropsychology",
-        image: "https://mental-care.cmsmasters.net/main/wp-content/uploads/sites/2/2021/08/doctor-6-1.webp",
+        image: "/doctor-6-1.webp",
         links: []
     },
     {
         name: "Anne Middleton",
         title: "Child Psychiatry",
-        image: "https://mental-care.cmsmasters.net/main/wp-content/uploads/sites/2/2021/08/doctor-5-1.webp",
+        image: "/doctor-5-1.webp",
         links: []
     },
     {
         name: "Whitney Pratt",
         title: "Clinical Psychology",
-        image: "https://mental-care.cmsmasters.net/main/wp-content/uploads/sites/2/2021/08/doctor-4-1.webp",
+        image: "/doctor-4-1.webp",
         links: []
     },
     {
         name: "Jane Goodman",
         title: "Neuropsychology",
-        image: "https://mental-care.cmsmasters.net/main/wp-content/uploads/sites/2/2021/08/doctor-3-1.webp",
+        image: "/doctor-3-1.webp",
         links: []
     },
     {
         name: "Martha Ruiz, MD",
         title: "Clinical Psychology",
-        image: "https://mental-care.cmsmasters.net/main/wp-content/uploads/sites/2/2021/08/doctor-2-1.webp",
+        image: "/doctor-2-1.webp",
         links: []
     },
     {
         name: "Kate Adams",
         title: "Child Psychiatry",
-        image: "https://mental-care.cmsmasters.net/main/wp-content/uploads/sites/2/2021/08/doctor-1-1.webp",
+        image: "/doctor-1-1.webp",
         links: []
     }
 ]
@@ -66,7 +66,7 @@ const posts = [
                                 </svg>
                             </button>
                         </div>
-                        <img src="https://mental-care.cmsmasters.net/main/wp-content/uploads/sites/2/2021/08/doctors-1.webp"
+                        <img src="/doctors-1.webp"
                             alt=""
                             class="aspect-square w-full overflow-hidden rounded-4xl object-cover group-hover:opacity-75 sm:aspect-2/3 absolute max-w-lg left-20 top-[-40px] h-[calc(100%+80px)] drop-shadow-xl drop-shadow-primary/5">
                     </div>

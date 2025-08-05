@@ -167,10 +167,10 @@ function reset() {
             <div tabindex="0"
                 class="flex min-h-full items-end justify-center p-4 text-center focus:outline-none sm:items-center sm:p-0">
                 <div
-                    class="relative transform rounded-lg gradient-muted bg-white px-4 pt-5 pb-4 text-left shadow-xl transition-all data-closed:translate-y-4 data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in sm:my-8 sm:w-full sm:max-w-3xl sm:p-6 data-closed:sm:translate-y-0 data-closed:sm:scale-95">
+                    class="relative transform rounded-3xl gradient-muted bg-white px-4 pt-5 pb-4 text-left shadow-xl transition-all data-closed:translate-y-4 data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in sm:my-8 sm:w-full sm:max-w-3xl sm:p-6 data-closed:sm:translate-y-0 data-closed:sm:scale-95">
                     <div>
                         <button
-                            class="absolute top-5 right-5 text-paragraph hover:text-secondary-estabilizar cursor-pointer"
+                            class="absolute -top-10 -right-10 text-white hover:text-secondary-estabilizar cursor-pointer"
                             @click.prevent="store.openOnboarding = false">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="currentColor" class="size-10">
@@ -181,7 +181,7 @@ function reset() {
                             <div class="max-w-2xl mx-auto py-12 px-4">
                                 <!-- INTRO STEP -------------------------------------------------------->
                                 <div v-if="!started && !showResults" class="text-center space-y-6">
-                                    <h1 class="text-3xl font-literata text-primary">
+                                    <h1 class="text-3xl md:text-5xl font-literata text-primary">
                                         Evalúa tus 6 pilares
                                     </h1>
                                     <p class="text-paragraph max-w-md mx-auto">
@@ -189,7 +189,7 @@ function reset() {
                                         oportunidad. Sólo te tomará un par de minutos.
                                     </p>
                                     <button @click="start"
-                                        class="px-6 py-3 rounded-full text-white bg-secondary-sanar hover:bg-secondary-crecer transition-colors">
+                                        class="btn crecer">
                                         Comenzar test
                                     </button>
                                 </div>
@@ -199,27 +199,27 @@ function reset() {
                                     <!-- Progress bar -->
                                     <div class="flex items-center mb-8">
                                         <div
-                                            class="flex-1 h-2 rounded-full bg-[color:var(--color-muted)] overflow-hidden">
-                                            <div class="h-full bg-secondary-sanar transition-all"
+                                            class="flex-1 h-2 rounded-full bg-muted overflow-hidden">
+                                            <div class="h-full bg-secondary-crecer transition-all"
                                                 :style="{ width: `${((step + 1) / pillars.length) * 100}%` }" />
                                         </div>
-                                        <span class="ml-3 text-sm font-medium text-paragraph">
+                                        <span class="ml-3 text-base font-medium text-paragraph">
                                             {{ step + 1 }} / {{ pillars.length }}
                                         </span>
                                     </div>
 
-                                    <h2 class="text-2xl font-literata text-primary mb-6">
+                                    <h2 class="text-2xl lg:text-4xl font-literata text-primary mb-6">
                                         {{ currentPillar.label }}
                                     </h2>
 
                                     <div class="space-y-6">
                                         <div v-for="q in currentPillar.questions" :key="q.id" class="space-y-2">
-                                            <p class="font-public text-primary">{{ q.text }}</p>
+                                            <p class="font-public text-primary text-base lg:text-lg">{{ q.text }}</p>
                                             <div class="flex justify-center gap-4">
                                                 <label v-for="opt in options" :key="opt.value"
-                                                    class="flex items-center gap-1 text-sm cursor-pointer">
+                                                    class="flex items-center gap-1 text-base cursor-pointer text-paragraph font-public">
                                                     <input type="radio"
-                                                        class="form-radio accent-secondary-crecer focus:ring-0"
+                                                        class="accent-secondary-crecer focus:ring-0"
                                                         :name="`q-${q.id}`" :value="opt.value"
                                                         v-model.number="answers[q.id]" />
                                                     {{ opt.label }}
@@ -230,12 +230,12 @@ function reset() {
 
                                     <!-- Navigation buttons -->
                                     <div class="flex justify-between mt-10">
-                                        <button class="px-4 py-2 rounded-full border" :disabled="step === 0"
+                                        <button class="btn primary" :disabled="step === 0"
                                             @click="prevStep">
                                             Atrás
                                         </button>
                                         <button
-                                            class="px-4 py-2 rounded-full text-white bg-secondary-sanar"
+                                            class="btn crecer"
                                             @click="nextStep">
                                             {{ step === pillars.length - 1 ? 'Ver resultados' : 'Siguiente' }}
                                         </button>
