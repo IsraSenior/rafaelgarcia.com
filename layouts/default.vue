@@ -5,7 +5,7 @@
 <template>
     <div>
         <Header />
-        <main class="mt-[125px]">
+        <main>
             <slot />
         </main>
         <Footer />

@@ -38,8 +38,8 @@ const words = ref([
 </script>
 
 <template>
-    <div class="">
-        <section>
+    <div>
+        <section class="mt-[125px]">
             <div class="container mx-auto rounded-[40px] bg-white mt-10 py-24 px-20 relative">
                 <div class="flex">
                     <div class="max-w-2xl space-y-5">
@@ -176,7 +176,7 @@ const words = ref([
                                 </button>
                             </div>
                             <img src="/home-10.png" alt=""
-                                class="aspect-square w-full overflow-hidden rounded-4xl object-cover group-hover:opacity-75 sm:aspect-2/3 absolute max-w-lg left-20 top-[-40px] h-[calc(100%+80px)] drop-shadow-2xl drop-shadow-primary/5">
+                                class="aspect-square w-full overflow-hidden rounded-4xl object-cover group-hover:opacity-75 sm:aspect-2/3 absolute max-w-lg left-20 top-[-40px] h-[calc(100%+80px)] drop-shadow-xl drop-shadow-primary/5">
                         </div>
                     </article>
 

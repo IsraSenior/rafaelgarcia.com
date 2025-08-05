@@ -1,11 +1,12 @@
 <script setup>
+const route = useRoute();
 const show = ref(true);
 </script>
 
 <template>
-    <div v-if="show" class="flex items-center gap-x-6 bg-gradient-muted px-6 py-2.5 sm:px-3.5 sm:before:flex-1">
+    <div v-if="show && route.name === 'index'" class="flex items-center gap-x-6 bg-gradient-muted px-6 py-2.5 sm:px-3.5 sm:before:flex-1">
         <p class="text-base font-public text-primary">
-            <a href="#" class="hover:text-white">
+            <a href="#" class="hover:text-secondary-estabilizar">
                 <strong class="font-semibold">GeneriCon 2025</strong><svg viewBox="0 0 2 2"
                     class="mx-5 inline size-0.5 fill-current" aria-hidden="true">
                     <circle cx="1" cy="1" r="1" />
@@ -15,7 +16,7 @@ const show = ref(true);
         </p>
         <div class="flex flex-1 justify-end">
             <button type="button" @click.prevent="show = false"
-                class="-m-3 p-3 focus-visible:-outline-offset-4 text-primary hover:text-white">
+                class="-m-3 p-3 focus-visible:-outline-offset-4 text-primary hover:text-secondary-estabilizar">
                 <span class="sr-only">Dismiss</span>
                 <svg class="size-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
                     <path
