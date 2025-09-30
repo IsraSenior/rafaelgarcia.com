@@ -8,7 +8,7 @@
     --color-white: #fff;
 
     --color-primary: #313745;
-    --color-paragraph: #757f8a;
+    --color-paragraph: #4e555d;
     --color-muted: #e5ebec;
     --color-secondary-estabilizar: #fc4242;
     --color-secondary-sanar: #42a8fc;
@@ -102,7 +102,8 @@
         &>li {
             @apply inline-flex space-x-2.5 cursor-pointer transform-none rounded-4xl px-2.5 py-1.5 font-public text-base lg:text-lg font-normal leading-6 tracking-normal break-words transition-all duration-300 ease-in [box-sizing:border-box] border-2 border-transparent hover:border-secondary-crecer [tab-size:4] [-webkit-text-size-adjust:100%] [-webkit-tap-highlight-color:transparent] [font-feature-settings:normal] [font-variation-settings:normal];
 
-            &>a {
+            &>a,
+            & a {
                 @apply inline-flex items-center justify-center space-x-1.5 text-white;
             }
         }
@@ -114,6 +115,10 @@
 
         p {
             @apply mb-4 text-paragraph;
+        }
+
+        b, strong {
+            @apply font-bold text-paragraph;
         }
 
         a {

@@ -21,7 +21,7 @@
               <div class="max-w-3xl mx-auto">
 
                 <h1 class="uppertitle">Sobre mí - Rafael García</h1>
-                <div class="mt-6 space-y-6 text-lg leading-relaxed">
+                <div class="mt-6 space-y-6 text-lg leading-relaxed content">
                   <p>
                     Me formé como psicólogo con más de 25 años de experiencia acompañando a personas en sus procesos
                     individuales y

@@ -1,41 +1,65 @@
 <script setup>
 const posts = [
     {
-        name: "Mark Hoffman",
-        title: "Neuropsychology",
-        image: "/doctor-6-1.webp",
+        name: "Ricardo Didomenico",
+        title: "Cirujano general",
+        image: "/team/ricardo-didomenico.webp",
+        text: `<b>Médico con especialización en Cirugía General</b>. Su experiencia clínica por más de 40 años se ha centrado en el abordaje integral de los pacientes.
+
+En los últimos 20 años ha explorado el potencial terapéutico de los estados ampliados de conciencia.
+
+Certificado por Grof Transpersonal Training en el 2014. Actualmente es facilitador de Talleres de Respiración Holotrópica.
+
+Desde el año 2016 es terapeuta certificado en Imaginación Guiada con Música (GIM) por Atlantis Institute (USA), Fellow y Primary Trainer de AMI (Association for Music & Imagery) y facilitador de Hologim (Respiración Holotrópica en combinación con GIM).
+
+        `,
         links: []
     },
     {
-        name: "Anne Middleton",
-        title: "Child Psychiatry",
-        image: "/doctor-5-1.webp",
+        name: "Carolina Nensthiel",
+        title: "Psicóloga social",
+        image: "/team/carolina-nensthiel.webp",
+        text: `Psicóloga Social y Magíster en Psicología Clínica de la Universidad Javeriana. Terapeuta Familiar Sistémica, Supervisora en Psicoterapia y Consteladora Cuántica.
+        
+Durante más de 13 años fue docente universitaria y consultora internacional, acompañando procesos en género, cuidado emocional y formación de profesionales que trabajan con víctimas del conflicto armado.
+
+Integra en su práctica terapéutica la conexión con la naturaleza, la espiritualidad y saberes ancestrales, ofreciendo un acompañamiento profundo y humano. Su mirada combina lo académico, lo espiritual y lo vivencial, con la sencillez de quien se reconoce como eterna aprendiz y alquimista de su propia vida.`,
         links: []
     },
     {
-        name: "Whitney Pratt",
-        title: "Clinical Psychology",
-        image: "/doctor-4-1.webp",
+        name: "Carolina Amado",
+        title: "Psicóloga",
+        image: "/team/carolina-amado.webp",
+        text: `Psicóloga de la Pontificia Universidad Javeriana, con sólida formación en terapias corporales y artísticas. Es Formadora y Facilitadora TRE®️ de TREforAll®️, con estudios complementarios en Bioenergética, Musicoterapia y Danzaterapia.
+        
+Su trabajo integra la psicoterapia centrada en el cuerpo, la comprensión de la historia personal y el acompañamiento emocional, utilizando diversas herramientas que promueven la sanación y el equilibrio. Acompaña especialmente a personas que viven altos niveles de estrés laboral y familiar, como ejecutivos y cuidadores, a través de la técnica TRE®️.
+
+Además, facilita espacios de exploración y autoconocimiento con la herramienta del tarot terapéutico y holístico, ofreciendo una mirada integradora y sensible que conecta lo emocional, lo corporal y lo espiritual.`,
         links: []
     },
     {
-        name: "Jane Goodman",
-        title: "Neuropsychology",
-        image: "/doctor-3-1.webp",
+        name: "Lina Maria Hoyos",
+        title: "Mentora de Marca Personal Consciente",
+        image: "/team/lina-hoyos.webp",
+        text: `Mentora de Marca Personal Consciente, Coach en Propósito de Vida y estratega en Mercadeo Consciente y Sostenible.
+
+Acompaña a personas, equipos y organizaciones a conectar con su valor esencial, integrando el SER con el HACER, para construir proyectos y caminos de vida con sentido, prosperidad e impacto positivo en el mundo.
+
+Se ha formado como Coach Ontológica en Newfield Network, Coach en PNL avalada por Richard Bandler, Meaning Change Maker, Administradora de Empresas del CESA y Máster en Dirección de Marketing Estratégico (EOI). Su experiencia une la visión estratégica con una profunda mirada humana, ofreciendo acompañamientos transformadores que inspiran claridad, autenticidad y coherencia.
+`,
         links: []
     },
     {
-        name: "Martha Ruiz, MD",
-        title: "Clinical Psychology",
-        image: "/doctor-2-1.webp",
+        name: "Gustavo Lara",
+        title: "Cirujano general",
+        image: "/team/gustavo-lara.webp",
+        text: `Psicólogo de la Universidad Nacional de Colombia, con amplia experiencia académica y clínica. Complementó su formación con estudios en música —Especialización Instrumental en Flauta Traversa— y una Maestría en Educación en la Universidad Pedagógica Nacional.
+
+Durante más de una década fue profesor en el Programa de Psicología de la Universidad del Rosario (2006-2020) y posteriormente dirigió el Centro de Mindfulness Integral y Meditación (2022-2023). Actualmente hace parte del cuerpo docente de posgrados en la Escuela de Medicina y Ciencias de la Salud.
+
+Es psicoterapeuta de orientación transpersonal integral, certificado por el Mindfulness-Based Professional Training Institute de la Universidad de California San Diego (UCSD). Su trayectoria se enriquece con más de 40 años de práctica meditativa en tradiciones como el budismo, el sufismo y diversas disciplinas somáticas y psicoterapéuticas.`,
         links: []
     },
-    {
-        name: "Kate Adams",
-        title: "Child Psychiatry",
-        image: "/doctor-1-1.webp",
-        links: []
-    }
 ]
 </script>
 
@@ -70,6 +94,11 @@ const posts = [
                             class="aspect-square w-full overflow-hidden rounded-4xl object-cover group-hover:opacity-75 sm:aspect-2/3 lg:absolute max-w-lg left-20 top-[-40px] h-[calc(100%+80px)] drop-shadow-xl drop-shadow-primary/5 hidden lg:block">
                     </div>
                 </article>
+
+                <div id="equipo" class="grid grid-cols-1 gap-10 mt-32 md:mt-44 md:grid-cols-2 lg:grid-cols-3">
+                    <TeamTeaser v-for="(post, index) in posts" :key="index" :image="post?.image" :title="post?.title"
+                        :text="post?.text" :name="post?.name" />
+                </div>
             </div>
         </section>
 
