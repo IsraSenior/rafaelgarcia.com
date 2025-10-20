@@ -46,7 +46,7 @@ const testimonials = [
     {
         quote: "El programa de camino vital me ayudó a entender el camino que quiero escoger para mi vida, me dio las herramientas para calmar mis emociones cuando todo parece salirse de control y aprovecharlas para aprender de cada situación lo más que pueda. Para hacer parte de mi el conocimiento de cómo funciono yo personalmente, alejado de cómo funciona el mundo en general. Me dio un lugar donde me sentí entendida y acompañada.",
         name: "Yessica Ortiz",
-        role: "",
+        role: "Diseñadora industrial",
         image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
     },
     {
@@ -56,15 +56,15 @@ const testimonials = [
         image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
     },
     {
-        quote: "Gracias a Camino Vital volví a disfrutar de la vida en sus pequeñas cosas diarias, a priorizarme sin culpa y a reconectarme con lo que de verdad quiero para mi. Aprendí a hacer pausas, a cuidarme desde el amor y no desde la exigencia, y a elegir con más conciencia lo que me nutre y nutre mis relaciones. ",
+        quote: "Gracias a Camino Vital volví a disfrutar de la vida en sus pequeñas cosas diarias, a priorizarme sin culpa y a reconectarme con lo que de verdad quiero para mi. Aprendí a hacer pausas, a cuidarme desde el amor y no desde la exigencia, y a elegir con más conciencia lo que me nutre y nutre mis relaciones.",
         name: "Paula Elena Vasco",
-        role: "",
+        role: "Comunicadora socal y periodista",
         image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
     },
     // {
     //     quote: "",
     //     name: "María Isabel Paz",
-    //     role: "",
+    //     role: "Abogada",
     //     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
     // },
     {
@@ -88,7 +88,7 @@ const testimonials = [
     {
         quote: "En Camino Vital me sentí profundamente afortunada de tener la posibilidad de trabajar en mi. Estuve muy motivada con los diferentes contenidos y experiencias. Descubrí versiones de mí de las que no era consciente, asombrada de todo lo que iba encontrando en mi proceso personal. Me sentí muy acompañada y respaldada en ese ciclo de ir y venir con las emociones y con los miedos.",
         name: "Diana Gamboa",
-        role: "",
+        role: "Lic. en Humanidades",
         image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
     }
 ]
