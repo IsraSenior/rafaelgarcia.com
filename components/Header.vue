@@ -1,12 +1,22 @@
 <script setup>
 const store = useMainStore();
-const servicesDrop = ref(false);
+// const servicesDrop = ref(false);
+
+let offsetTop = ref(0);
+
+onMounted(() => {
+    offsetTop.value = window.pageYOffset || document.documentElement.scrollTop;
+
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+        offsetTop.value = currentScroll;
+    });
+});
 </script>
 
 <template>
-   <header>
-      <BannerAnnouncement />
-
+   <header :class="{'fixed top-0 inset-x-0 z-10 transition-all duration-500 ease-in-out': offsetTop > 140}">
+      <!-- <BannerAnnouncement /> -->
       <nav class="px-20 py-12 bg-primary">
          <div class="flex items-center justify-between">
             <div class="flex items-center justify-start space-x-10">

@@ -40,7 +40,7 @@ const testimonials = [
     {
         quote: "Es el mejor programa para conocerse a uno mismo, cuando uno cree que lleva toda la vida conviviendo y conociendose a uno mismo entra al taller y se da cuenta que falta mucho por auto conocerse.",
         name: "Sebastián Mejias",
-        role: "",
+        role: "Director creativo",
         image: "/male-profile.webp"
     },
     {
@@ -418,25 +418,25 @@ const testimonials = [
                         </div>
                     </article>
 
-                    <div class="grid grid-cols-1 px-20 pt-10 divide-x-2 md:grid-cols-4 divide-dashed divide-muted">
-                        <div class="space-y-5 text-center">
+                    <div class="grid grid-cols-1 px-20 pt-10 divide-x-2 md:grid-cols-3 divide-dashed divide-muted">
+                        <!-- <div class="space-y-5 text-center">
                             <p class="text-white title title--headline">10</p>
                             <p class="text-white title title--element">Therapists</p>
+                        </div> -->
+
+                        <div class="space-y-5 text-center">
+                            <p class="text-white title title--headline">6</p>
+                            <p class="text-white title title--element">Especialistas</p>
                         </div>
 
                         <div class="space-y-5 text-center">
-                            <p class="text-white title title--headline">59</p>
-                            <p class="text-white title title--element">Specialties</p>
-                        </div>
-
-                        <div class="space-y-5 text-center">
-                            <p class="text-white title title--headline">4</p>
-                            <p class="text-white title title--element">Services</p>
+                            <p class="text-white title title--headline">5</p>
+                            <p class="text-white title title--element">Servicios</p>
                         </div>
 
                         <div class="space-y-5 text-center">
                             <p class="text-white title title--headline">1</p>
-                            <p class="text-white title title--element">Location</p>
+                            <p class="text-white title title--element">Ubicación</p>
                         </div>
                     </div>
                 </div>
@@ -520,6 +520,7 @@ const testimonials = [
                                     <span>Subscribirme</span>
                                 </button>
                             </div>
+                            <p class="text-white">* Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                         </div>
                     </article>
                 </div>

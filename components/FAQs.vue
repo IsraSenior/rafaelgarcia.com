@@ -2,7 +2,7 @@
 const faqs = [
     {
         "question": "¿Debo realizar los tres módulos del programa Camino Vital?",
-        "answer": "<p>No necesariamente. Puedes inscribirte en el módulo que más resuene contigo o que responda a lo que necesitas en este momento.</p><p>Sin embargo, es importante tener en cuenta que los módulos tienen un orden progresivo:</p><ul><li>Para participar en el módulo <b>Sanar</b> (segundo), es necesario haber completado antes el módulo <b>Estabilizar</b> (primero).</li><li>Para ingresar al módulo <b>Crecer</b> (tercero), debes haber realizado previamente el módulo Sanar.</li></ul><p>De esta manera aseguramos que avances paso a paso, con una base sólida y coherente para tu proceso de transformación.</p>"
+        "answer": "<p>No necesariamente. Sin embargo, es importante tener en cuenta que los módulos tienen un orden progresivo:</p><ul><li>Para participar en el módulo <b>Sanar</b> (segundo), es necesario haber completado antes el módulo <b>Estabilizar</b> (primero).</li><li>Para ingresar al módulo <b>Crecer</b> (tercero), debes haber realizado previamente el módulo Sanar.</li></ul><p>De esta manera aseguramos que avances paso a paso, con una base sólida y coherente para tu proceso de transformación.</p>"
     },
     {
         "question": "¿Los talleres de Respiración Holotrópica solo pueden ser realizados por las personas que están en el programa Camino Vital?",
