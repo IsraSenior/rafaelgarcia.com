@@ -366,9 +366,9 @@ const testimonials = [
                     autoplay: 3000
                 }">
                     <Slide v-for="(testimonial, index) in testimonials" :key="index">
-                        <figure class="px-20 py-10 space-x-10 space-y-5 text-center bg-white rounded-4xl">
+                        <figure class="px-10 py-10 space-x-10 space-y-5 text-center bg-white rounded-4xl">
                             <blockquote class="w-full">
-                                <p class="!text-primary"> {{ testimonial?.quote }} </p>
+                                <p class="!text-primary text-base"> {{ testimonial?.quote }} </p>
                             </blockquote>
                             <figcaption class="flex items-center justify-center mt-10 gap-x-6">
                                 <img class="rounded-full size-14 bg-gray-50" :src="testimonial?.image" :alt="testimonial?.name">
