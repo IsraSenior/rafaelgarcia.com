@@ -16,12 +16,18 @@ const servicesDrop = ref(false);
 
                <ul class="hidden header-nav lg:block">
                   <li>
+                     <NuxtLink to="/"><span>Inicio</span></NuxtLink>
+                  </li>
+                  <li>
                      <NuxtLink to="/sobre-mi"><span>Sobre mí</span></NuxtLink>
                   </li>
                   <li>
                      <NuxtLink to="/servicios/camino-vital"><span>Camino Vital</span></NuxtLink>
                   </li>
-                  <li class="relative inline-block">
+                  <li>
+                     <NuxtLink to="/servicios"><span>Servicios</span></NuxtLink>
+                  </li>
+                  <!-- <li class="relative inline-block">
                      <button class="inline-flex text-white gap-x-5" @click.prevent="servicesDrop = !servicesDrop">
                         <span>Servicios</span>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
@@ -58,7 +64,7 @@ const servicesDrop = ref(false);
                            </div>
                         </div>
                      </Transition>
-                  </li>
+                  </li> -->
                   <li>
                      <NuxtLink to="/equipo"><span>Equipo</span></NuxtLink>
                   </li>

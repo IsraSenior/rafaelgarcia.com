@@ -1,14 +1,14 @@
 <script setup>
-const logos = ref([
+const logos = [
     "https://brandlogos.net/wp-content/uploads/2023/09/humana-logo_brandlogos.net_ub8fy.png",
     "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Aetna_logo.svg/1280px-Aetna_logo.svg.png",
     "https://static.cdnlogo.com/logos/c/62/cigna.svg",
     "https://brandlogos.net/wp-content/uploads/2023/09/humana-logo_brandlogos.net_ub8fy.png",
     "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Aetna_logo.svg/1280px-Aetna_logo.svg.png",
     "https://static.cdnlogo.com/logos/c/62/cigna.svg",
-]);
+];
 
-const words = ref([
+const words = [
     "Respira con calma",
     "Aquí y ahora",
     "Observa sin juzgar",
@@ -34,7 +34,64 @@ const words = ref([
     "Conócete a ti",
     "Sueña sin miedo",
     "Transforma tu vida",
-])
+];
+
+const testimonials = [
+    {
+        quote: "Es el mejor programa para conocerse a uno mismo, cuando uno cree que lleva toda la vida conviviendo y conociendose a uno mismo entra al taller y se da cuenta que falta mucho por auto conocerse.",
+        name: "Sebastián Mejías",
+        role: "",
+        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+    },
+    {
+        quote: "El programa de camino vital me ayudó a entender el camino que quiero escoger para mi vida, me dio las herramientas para calmar mis emociones cuando todo parece salirse de control y aprovecharlas para aprender de cada situación lo más que pueda. Para hacer parte de mi el conocimiento de cómo funciono yo personalmente, alejado de cómo funciona el mundo en general. Me dio un lugar donde me sentí entendida y acompañada.",
+        name: "Yessica Ortiz",
+        role: "",
+        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+    },
+    {
+        quote: "Camino Vital es una invitación para mirar hacia adentro y cuestionarte cómo vives tu vida desde las distintas dimensiones que nos hace seres humanos. Es un camino en donde dejas de ser víctima de tu realidad para empezar a asumir un papel más activo de cómo respondes a aquellas situaciones que no controlas y, en definitiva, para empezar a crear esa vida que tanto deseas.",
+        name: "Alejandra Velandia",
+        role: "Psicóloga",
+        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+    },
+    {
+        quote: "Gracias a Camino Vital volví a disfrutar de la vida en sus pequeñas cosas diarias, a priorizarme sin culpa y a reconectarme con lo que de verdad quiero para mi. Aprendí a hacer pausas, a cuidarme desde el amor y no desde la exigencia, y a elegir con más conciencia lo que me nutre y nutre mis relaciones. ",
+        name: "Paula Elena Vasco",
+        role: "",
+        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+    },
+    // {
+    //     quote: "",
+    //     name: "María Isabel Paz",
+    //     role: "",
+    //     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+    // },
+    {
+        quote: "Para mí, Camino Vital fue mucho más que un programa; fue un compañero que me desafió a enfrentar lo que pensaba sobre mi vida. Fue un camino constante de búsqueda y descubrimiento personal. Me ayudó a reconocer quién soy y a crecer desde lo más profundo. Lo recomiendo de corazón, pero solo si estás realmente dispuesto a trabajar en ti y a abrirte al cambio.",
+        name: "Fernanda Molina",
+        role: "Psicóloga",
+        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+    },
+    {
+        quote: "Este programa me permitió darme cuenta de los superpoderes que tengo, que puedo potenciar y que elijo crear cuando trabajo en mí.",
+        name: "Sandra Cruz",
+        role: "",
+        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+    },
+    {
+        quote: "Camino vital es un regalo para el alma. Si bien la vida consiste en ser un continuo aprendizaje, que bonito cultivar y gestar dichos espacios desde el amor y la compasión.",
+        name: "Jennifer Vargas",
+        role: "Antropóloga",
+        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+    },
+    {
+        quote: "En Camino Vital me sentí profundamente afortunada de tener la posibilidad de trabajar en mi. Estuve muy motivada con los diferentes contenidos y experiencias. Descubrí versiones de mí de las que no era consciente, asombrada de todo lo que iba encontrando en mi proceso personal. Me sentí muy acompañada y respaldada en ese ciclo de ir y venir con las emociones y con los miedos.",
+        name: "Diana Gamboa",
+        role: "",
+        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+    }
+]
 </script>
 
 <template>
@@ -92,13 +149,14 @@ const words = ref([
                             <div class="space-y-5">
                                 <h3 class="text-white uppertitle">¿Para qué iniciar este camino?</h3>
                                 <h4 class="text-white title title--headline">
-                                    Transforma tu crisis y recupera el <b><i>rumbo de tu vida</i></b>
+                                    Conecta con tus recursos y 
+                                     <b><i><u class="decoration-secondary-crecer">vive con autonomía y propósito</u></i></b>
                                 </h4>
-                                <p class="text-white">Con la combinación de mi experiencia personal y clínica, te
+                                <p class="text-white mt-8">Con la combinación de mi experiencia personal y clínica, te
                                     ofrezco una guía profunda que integra conocimiento, práctica y vivencia para
                                     acompañarte en tu transformación personal y profesional.
                                 </p>
-                                <button class="mt-10 btn estabilizar">
+                                <button class="mt-10 btn crecer">
                                     <span>Descubre más</span>
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                         class="size-6">
@@ -241,14 +299,14 @@ const words = ref([
                     <div class="relative space-y-5">
                         <article class="flex p-10 space-x-10 bg-muted rounded-4xl">
                             <div>
-                                <span class="title title--headline !text-secondary-crecer">3</span>
+                                <span class="title title--headline !text-secondary-estabilizar">1</span>
                             </div>
                             <div class="space-y-5">
-                                <h5 class="title title--element">Módulo Crecer</h5>
-                                <p>Expandir tu potencial: conectar con propósito, desplegar creatividad y vivir con
-                                    plenitud y sentido.</p>
+                                <h5 class="title title--element">Módulo Estabilizar</h5>
+                                <p>Recupera el equilibrio físico, emocional y mental. Aprende a cuidar tu energía y crea bases sólidas para tu bienestar.</p>
                             </div>
                         </article>
+                        
 
                         <article class="flex p-10 space-x-10 bg-muted rounded-4xl">
                             <div>
@@ -256,19 +314,17 @@ const words = ref([
                             </div>
                             <div class="space-y-5">
                                 <h5 class="title title--element">Módulo Sanar</h5>
-                                <p>Transformar heridas y bloqueos, integrando lo vivido para liberar espacio interno y
-                                    abrirse a lo nuevo.</p>
+                                <p>Libera bloqueos y sana heridas emocionales. Transforma el dolor en aprendizaje, sabiduría y autocompasión.</p>
                             </div>
                         </article>
 
                         <article class="flex p-10 space-x-10 bg-muted rounded-4xl">
                             <div>
-                                <span class="title title--headline !text-secondary-estabilizar">1</span>
+                                <span class="title title--headline !text-secondary-crecer">3</span>
                             </div>
                             <div class="space-y-5">
-                                <h5 class="title title--element">Módulo Estabilizar</h5>
-                                <p>Recuperar equilibrio físico, emocional y mental, creando una base sólida de energía y
-                                    autocuidado.</p>
+                                <h5 class="title title--element">Módulo Crecer</h5>
+                                <p>Expande tu potencial en las 6 dimensiones. Conecta con tu propósito y vive con claridad, confianza y sentido.</p>
                             </div>
                         </article>
                     </div>
@@ -297,9 +353,9 @@ const words = ref([
             <div class="container px-20 mx-auto">
                 <div class="space-y-4 text-center">
                     <h2 class="text-center title title--headline text-primary">
-                        ¿Qué dicen <b><i><u class="decoration-secondary-crecer">mis pacientes</u></i></b>?
+                        ¿Qué dicen <b><i><u class="decoration-secondary-crecer">las personas</u></i></b> que he acompañado?
                     </h2>
-                    <p>Más de 250 personas han confiado en mi metodología</p>
+                    <!-- <p>Personas han confiado en mi metodología</p> -->
                 </div>
             </div>
             <div class="mt-16">
@@ -309,47 +365,16 @@ const words = ref([
                     gap: 40,
                     autoplay: 3000
                 }">
-                    <Slide v-for="slide in 10" :key="slide">
+                    <Slide v-for="(testimonial, index) in testimonials" :key="index">
                         <figure class="px-20 py-10 space-x-10 space-y-5 text-center bg-white rounded-4xl">
-                            <div class="flex items-center justify-center w-full mb-10">
-                                <svg class="w-4 h-4 text-secondary-crecer ms-1" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                    <path
-                                        d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                                </svg>
-                                <svg class="w-4 h-4 text-secondary-crecer ms-1" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                    <path
-                                        d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                                </svg>
-                                <svg class="w-4 h-4 text-secondary-crecer ms-1" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                    <path
-                                        d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                                </svg>
-                                <svg class="w-4 h-4 text-secondary-crecer ms-1" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                    <path
-                                        d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                                </svg>
-                                <svg class="w-4 h-4 ms-1 text-muted dark:text-gray-500" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                    <path
-                                        d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                                </svg>
-                            </div>
                             <blockquote class="w-full">
-                                <p class="!text-primary">Fill out a contact form with your information and a patient
-                                    access coordinator
-                                    will be in contact to schedule an intake appointment within 24 hours.</p>
+                                <p class="!text-primary"> {{ testimonial?.quote }} </p>
                             </blockquote>
                             <figcaption class="flex items-center justify-center mt-10 gap-x-6">
-                                <img class="rounded-full size-14 bg-gray-50"
-                                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                    alt="">
+                                <img class="rounded-full size-14 bg-gray-50" :src="testimonial?.image" :alt="testimonial?.name">
                                 <div class="text-base text-left">
-                                    <div class="paragrpah !text-primary !font-literata">Joseph Rodriguez</div>
-                                    <div class="mt-1 paragraph !text-sm">CEO of Reform</div>
+                                    <div class="paragrpah !text-primary !font-literata">{{testimonial?.name}}</div>
+                                    <div class="mt-1 paragraph !text-sm">{{testimonial?.role}}</div>
                                 </div>
                             </figcaption>
                         </figure>

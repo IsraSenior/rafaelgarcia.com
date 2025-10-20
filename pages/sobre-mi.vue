@@ -23,7 +23,7 @@
                 <h1 class="uppertitle">Sobre mí - Rafael García</h1>
                 <div class="mt-6 space-y-6 text-lg leading-relaxed content">
                   <p>
-                    Me formé como psicólogo con más de 25 años de experiencia acompañando a personas en sus procesos
+                    Me formé como psicólogo, con más de 25 años de experiencia acompañando a personas en sus procesos
                     individuales y
                     grupales. A lo largo de mi trayectoria he aprendido que las crisis no son un final, sino una
                     oportunidad para
@@ -32,18 +32,7 @@
 
                   <p>
                     Mi formación en clínica y psicoterapia psicoanalítica me dio una base sólida para comprender la
-                    complejidad del
-                    mundo interno. Más adelante, sentí el llamado a profundizar en la psicología transpersonal,
-                    formándome en el
-                    Grof Transpersonal Training, el Grof Legacy Training y la Asociación de Humanismo Transpersonal
-                    SASANA. También me
-                    formé como facilitador de respiración holotrópica, una herramienta poderosa para sanar desde adentro
-                    y abrirnos a
-                    nuestra sabiduría interior. Complementé este camino con estudios en programación neurolingüística
-                    desde la
-                    perspectiva de Richard Bandler, lo que amplió mi visión sobre el poder de la mente y el lenguaje en
-                    la
-                    transformación personal.
+                    complejidad del mundo interno. Más adelante, sentí el llamado a profundizar en la psicología transpersonal, formándome en el Grof Transpersonal Training, el Grof Legacy Training y la Asociación de Humanismo Transpersonal SASANA. También me formé como facilitador de respiración holotrópica, una herramienta poderosa para sanar desde adentro y abrirnos a nuestra sabiduría interior. Complementé este camino con estudios en programación neurolingüística desde la perspectiva de Richard Bandler, lo que amplió mi visión sobre el poder de la mente y el lenguaje en la transformación personal.
                   </p>
 
                   <p>
