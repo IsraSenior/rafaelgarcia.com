@@ -39,57 +39,57 @@ const words = [
 const testimonials = [
     {
         quote: "Es el mejor programa para conocerse a uno mismo, cuando uno cree que lleva toda la vida conviviendo y conociendose a uno mismo entra al taller y se da cuenta que falta mucho por auto conocerse.",
-        name: "Sebastián Mejías",
+        name: "Sebastián Mejias",
         role: "",
-        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+        image: "/male-profile.webp"
     },
     {
         quote: "El programa de camino vital me ayudó a entender el camino que quiero escoger para mi vida, me dio las herramientas para calmar mis emociones cuando todo parece salirse de control y aprovecharlas para aprender de cada situación lo más que pueda. Para hacer parte de mi el conocimiento de cómo funciono yo personalmente, alejado de cómo funciona el mundo en general. Me dio un lugar donde me sentí entendida y acompañada.",
         name: "Yessica Ortiz",
         role: "Diseñadora industrial",
-        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+        image: "/female-profile.webp"
     },
     {
         quote: "Camino Vital es una invitación para mirar hacia adentro y cuestionarte cómo vives tu vida desde las distintas dimensiones que nos hace seres humanos. Es un camino en donde dejas de ser víctima de tu realidad para empezar a asumir un papel más activo de cómo respondes a aquellas situaciones que no controlas y, en definitiva, para empezar a crear esa vida que tanto deseas.",
         name: "Alejandra Velandia",
         role: "Psicóloga",
-        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+        image: "/female-profile.webp"
     },
     {
         quote: "Gracias a Camino Vital volví a disfrutar de la vida en sus pequeñas cosas diarias, a priorizarme sin culpa y a reconectarme con lo que de verdad quiero para mi. Aprendí a hacer pausas, a cuidarme desde el amor y no desde la exigencia, y a elegir con más conciencia lo que me nutre y nutre mis relaciones.",
         name: "Paula Elena Vasco",
         role: "Comunicadora socal y periodista",
-        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+        image: "/female-profile.webp"
     },
     // {
     //     quote: "",
     //     name: "María Isabel Paz",
     //     role: "Abogada",
-    //     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+    //     image: "/female-profile.webp"
     // },
     {
         quote: "Para mí, Camino Vital fue mucho más que un programa; fue un compañero que me desafió a enfrentar lo que pensaba sobre mi vida. Fue un camino constante de búsqueda y descubrimiento personal. Me ayudó a reconocer quién soy y a crecer desde lo más profundo. Lo recomiendo de corazón, pero solo si estás realmente dispuesto a trabajar en ti y a abrirte al cambio.",
         name: "Fernanda Molina",
         role: "Psicóloga",
-        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+        image: "/female-profile.webp"
     },
     {
         quote: "Este programa me permitió darme cuenta de los superpoderes que tengo, que puedo potenciar y que elijo crear cuando trabajo en mí.",
         name: "Sandra Cruz",
         role: "",
-        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+        image: "/female-profile.webp"
     },
     {
         quote: "Camino vital es un regalo para el alma. Si bien la vida consiste en ser un continuo aprendizaje, que bonito cultivar y gestar dichos espacios desde el amor y la compasión.",
         name: "Jennifer Vargas",
         role: "Antropóloga",
-        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+        image: "/female-profile.webp"
     },
     {
         quote: "En Camino Vital me sentí profundamente afortunada de tener la posibilidad de trabajar en mi. Estuve muy motivada con los diferentes contenidos y experiencias. Descubrí versiones de mí de las que no era consciente, asombrada de todo lo que iba encontrando en mi proceso personal. Me sentí muy acompañada y respaldada en ese ciclo de ir y venir con las emociones y con los miedos.",
         name: "Diana Gamboa",
         role: "Lic. en Humanidades",
-        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+        image: "/female-profile.webp"
     }
 ]
 </script>
