@@ -273,8 +273,9 @@ const words = ref([
                         </article>
                     </div>
                     <div>
-                        <!-- <img src="/home-11.png" alt=""
-                            class="object-cover w-full overflow-hidden aspect-square rounded-4xl group-hover:opacity-75 drop-shadow-2xl drop-shadow-muted"> -->
+
+                            <img src="/home-5.png" alt=""
+                                    class="object-cover w-full overflow-hidden h-full rounded-4xl">
                     </div>
 
                     <div class="flex items-center justify-center md:col-span-2">

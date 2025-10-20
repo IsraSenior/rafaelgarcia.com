@@ -88,7 +88,7 @@
 
             <section class="grid items-start gap-10 lg:gap-40 lg:grid-cols-5 py-16">
               <div class="lg:col-span-2">
-                <VideoPlayerVertical class="mb-10" />
+                <VideoPlayerVertical class="mt-16 mb-10" />
 
                 <div>
                   <button class="btn sanar justify-center w-full">
@@ -163,7 +163,7 @@
             <div class="mx-auto ">
                 <div class="bg-primary rounded-t-[40px] p-10">
                     <article class="relative min-h-[60vh] flex items-center justify-start px-20">
-                        <img src="/home-6.png" alt=""
+                        <img src="/home-11.png" alt=""
                             class="w-full h-full absolute inset-0 transform scale-x-[-1] overflow-hidden rounded-4xl object-cover object-center">
 
                         <div class="relative max-w-2xl space-y-5">
