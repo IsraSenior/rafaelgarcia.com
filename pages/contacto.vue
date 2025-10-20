@@ -4,7 +4,7 @@
 
 <template>
     <div class="gradient-muted">
-        <section class="py-16 md:pt-24 md:pb-44 relative">
+        <!-- <section class="py-16 md:pt-24 md:pb-44 relative">
             <div class="container mx-auto px-20">
                 <article class="container mx-auto rounded-[40px] bg-white mt-10 py-24 px-20 relative">
                     <div class="flex justify-end">
@@ -46,9 +46,9 @@
                     </div>
                 </article>
             </div>
-        </section>
+        </section> -->
 
-        <section clasS="py-16 md:py-32 bg-primary">
+        <!-- <section clasS="py-16 md:py-32 bg-primary">
             <div class="container mx-auto px-20">
                 <h2 class="title title--headline text-white text-center">
                      <b><i><u class="decoration-secondary-crecer max-w-3xl mx-auto">Información</u></i></b> de contacto
@@ -85,23 +85,28 @@
 
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <section class="py-32">
             <div class="container mx-auto px-20">
                 <div class="relative flex items-stretch justify-between w-full gap-10">
-                    <div class="flex items-center justify-center px-12 py-10 w-1/2 order-0">
+                    <div class="flex items-stretch justify-center w-1/2 order-0">
                         <div class="space-y-5">
-                            <!-- <h3 class="uppertitle text-secondary">¿Para qué iniciar este camino?</h3> -->
+                            <img src="https://img.freepik.com/fotos-premium/mujer-joven-usando-telefono-movil-mientras-esta-sentada-sofa-casa_1048944-9040732.jpg?ga=GA1.1.369728013.1746707732&semt=ais_hybrid&w=740&q=80"
+                            alt=""
+                            class="rounded-4xl aspect-5/6 object-cover object-top group-hover:opacity-75 drop-shadow-2xl drop-shadow-muted">
+                        </div>
+                    </div>
+                    <div class="w-1/2 flex items-center justify-center">
+                        <div>
+                            <h3 class="uppertitle text-secondary">¿Cómo puedo apoyarte?</h3>
                             <h4 class="title title--headline text-secondary">
                                 Hazme una pregunta
                             </h4>
-                            <p class="text-paragraph">
-                                Si tienes alguna pregunta, puede ponte en contacto conmigo. Por favor, rellena el
-                                siguiente formulario.
+                            <p class="text-paragraph mt-6">
+                                Si tienes alguna duda sobre los talleres, programas o servicios, no dudes en contactarme.
                             </p>
-
-                            <form @submit.prevent="" class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-10">
+                        <form @submit.prevent="" class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-10">
 
                                 <div>
                                     <label for="name"
@@ -143,7 +148,7 @@
 
 
                                 <div>
-                                    <button class="btn sanar">
+                                    <button class="btn primary">
                                         <span>Enviar ahora</span>
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                             class="size-6">
@@ -156,13 +161,38 @@
                             </form>
                         </div>
                     </div>
-                    <div class="w-1/2 min-h-full">
-                        <img src="https://img.freepik.com/fotos-premium/mujer-joven-usando-telefono-movil-mientras-esta-sentada-sofa-casa_1048944-9040732.jpg?ga=GA1.1.369728013.1746707732&semt=ais_hybrid&w=740&q=80"
-                            alt=""
-                            class=" w-full h-full overflow-hidden rounded-4xl object-cover object-top group-hover:opacity-75 drop-shadow-2xl drop-shadow-muted">
-                    </div>
                 </div>
             </div>
         </section>
-    </div>
+    
+        <section class="">
+            <div class="mx-auto ">
+                <div class="bg-primary rounded-t-[40px] p-10">
+                    <article class="relative min-h-[60vh] flex items-center justify-start px-20">
+                        <img src="/home-6.png" alt=""
+                            class="w-full h-full absolute inset-0 transform scale-x-[-1] overflow-hidden rounded-4xl object-cover object-center">
+
+                        <div class="relative max-w-2xl space-y-5">
+                            <h2 class="text-left text-white title title--headline">Permíteme <br> <b><i>mantenerte<u
+                                            class="decoration-secondary-crecer"> informado</u></i></b>
+                            </h2>
+
+                            <p class="!text-white">Sé el primero en recibir información sobre nuestros programas,
+                                eventos,
+                                testimonios y mucho más.</p>
+
+                            <div class="flex items-center mt-10 space-x-5 justif-start">
+                                <input type="email" placeholder="Correo electrónico"
+                                    class="btn !border-2 !border-white border-solid placeholder:text-white outline-none !text-white focus:!bg-white focus:!text-primary">
+                                <button class="btn primary !w-auto">
+                                    <span>Subscribirme</span>
+                                </button>
+                            </div>
+                            <p class="text-white">* Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        </div>
 </template>

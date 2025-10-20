@@ -8,11 +8,11 @@
       <div class="container px-5 mx-auto lg:px-20">
         <article class="grid grid-cols-1 gap-10 lg:gap-20 lg:grid-cols-5">
           <div class="relative lg:col-span-2">
-            <div class="flex items-center lg:sticky lg:top-5">
+            <div class="flex items-center lg:sticky lg:top-32">
               <div class="space-y-5">
                 <div class="relative mt-16 isolate">
                   <img src="/home-10.png" alt=""
-                    class="object-cover object-top w-full overflow-hidden lg:object-center aspect-square rounded-4xl group-hover:opacity-75 lg:aspect-5/7 drop-shadow-2xl drop-shadow-muted">
+                    class="object-cover object-top w-full overflow-hidden lg:object-center aspect-square rounded-4xl group-hover:opacity-75 lg:aspect-3/4 drop-shadow-2xl drop-shadow-muted">
                 </div>
               </div>
             </div>
@@ -27,33 +27,18 @@
                 <div class="mt-6 space-y-6 text-lg leading-relaxed content">
                   <p>
                     La <b>Respiración Holotrópica ®</b> fue desarrollada por <b>Stanislav y Christina Grof</b> en la
-                    década de 1970 en
-                    el Instituto Esalen (California). La palabra holotrópica proviene del griego y significa
-                    <i><b>“moverse
-                        hacia la totalidad”</b></i>, reflejando el espíritu de esta práctica: integrar cuerpo, mente,
-                    emociones y
-                    espíritu en un proceso de autodescubrimiento y transformación profunda.
+                    década de 1970 en el Instituto Esalen (California). La palabra holotrópica proviene del griego <b><i>"holos"</i></b> que significa <b>"totalidad"</b> y <b><i>"trepein"</i></b> que significa <i><b>“moverse hacia”</b></i>, reflejando el espíritu de esta práctica: integrar cuerpo, mente, emociones y espíritu en un proceso de autodescubrimiento y transformación profunda.
                   </p>
 
-                  <p>Este enfoque combina <b>respiración acelerada, música evocadora, trabajo corporal focalizado,
-                      expresión
-                      artística y procesos grupales</b>, creando un espacio seguro donde es posible acceder a <b>estados
-                      ampliados de conciencia</b>. En estos estados, la psique activa su capacidad natural de sanación y
-                    abre
-                    la puerta a distintos niveles de experiencia:</p>
+                  <p>Este enfoque combina <b>respiración acelerada, música evocadora, trabajo corporal focalizado, expresión artística y procesos grupales</b>, creando un espacio seguro donde es posible acceder a <b>estados ampliados de conciencia</b>. En estos estados, la psique activa su capacidad natural de sanación y abre la puerta a distintos niveles de experiencia:</p>
 
                   <ul>
                     <li><b>Biográfico:</b> recuerdos y vivencias desde el nacimiento hasta la vida actual.</li>
                     <li><b>Perinatal:</b> experiencias vinculadas al proceso de nacimiento.</li>
-                    <li><b>Transpersonal:</b> conexión con el inconsciente colectivo, símbolos arquetípicos y una
-                      dimensión
-                      espiritual más amplia.</li>
+                    <li><b>Transpersonal:</b> conexión con el inconsciente colectivo, símbolos arquetípicos y una dimensión espiritual más amplia.</li>
                   </ul>
 
-                  <p>Durante los talleres, los participantes trabajan en parejas, alternando los roles de “respirador” y
-                    “cuidador”, siempre acompañados por facilitadores capacitados. El proceso incluye espacios de
-                    integración, como la pintura de mandalas, el compartir en grupo y el acompañamiento terapéutico
-                    cuando es necesario.</p>
+                  <p>Durante los talleres, los participantes trabajan en parejas, alternando los roles de <b>“respirador”</b> y <b>“cuidador”</b>, siempre acompañados por facilitadores capacitados. El proceso incluye espacios de integración, como la pintura de mandalas, el compartir en grupo y el acompañamiento terapéutico cuando es necesario.</p>
 
                     <div class="px-10 py-10 !text-white rounded-3xl bg-primary content my-16">
                       <h3 class="mb-8 font-medium title title--element">Beneficios principales:</h3>

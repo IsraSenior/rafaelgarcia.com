@@ -32,17 +32,21 @@
 
                   <h1 class="title title--headline text-primary">Programa <b><i><u class="decoration-secondary-crecer">Camino Vital</u></i></b></h1>
 
-                  <div class="mt-6 space-y-6 text-lg leading-relaxed content">
+                  <div class="mt-10 space-y-6 text-lg leading-relaxed content">
                     <p>Camino Vital es un programa integral de desarrollo personal diseñado para acompañarte en los momentos en que más lo necesitas. Si estás atravesando una crisis y quieres recuperar el rumbo de tu vida con tus propios recursos, o si sientes el llamado a iniciar un proceso profundo de autoconocimiento y fortalecimiento interior, este camino es para ti.</p>
 
                     <p>El programa dura treinta semanas y está organizado en tres módulos progresivos —Estabilizar, Sanar y Crecer— que integran de manera práctica y vivencial las seis dimensiones del ser humano: física, emocional, mental, existencial, espiritual y relacional. En Camino Vital encontrarás, en un mismo espacio y de forma articulada, el trabajo con herramientas como la Respiración Holotrópica, las Constelaciones Familiares, la Imaginación Guiada con Música, TRE® (Tension &amp; Trauma Release Exercises), la Meditación, el Manejo Creativo de las Emociones y de la Comunicación, entre otras prácticas que potencian la transformación y el crecimiento interior.</p>
 
 
-                    <div class="flex justify-center my-12" aria-hidden="true">
+                    <!-- <div class="flex justify-center my-12" aria-hidden="true">
                       <span class="block w-24 h-px bg-primary/50"></span>
-                    </div>
+                    </div> -->
 
-                    <p><span aria-hidden="true">🌿</span> <b>Más que un curso, una experiencia transformadora.</b> Camino Vital es más que un curso: es un mapa y una guía que se vive de manera individual y grupal. En cada encuentro respiras, reflexionas, sientes y practicas herramientas que te permiten transformar tu vida desde adentro hacia afuera. No se trata solo de aprender conceptos, sino de vivir procesos que generan cambios reales y duraderos.</p>
+                    <h5 class="title title--element text-primary mt-16">
+                       <b>Más que un curso, una <i><u class="decoration-secondary-crecer">experiencia transformadora</u></i></b>
+                    </h5>
+
+                    <p>Camino Vital es más que un curso: es un mapa y una guía que se vive de manera individual y grupal. En cada encuentro respiras, reflexionas, sientes y practicas herramientas que te permiten transformar tu vida desde adentro hacia afuera. No se trata solo de aprender conceptos, sino de vivir procesos que generan cambios reales y duraderos.</p>
 
                     <p>En esencia, Camino Vital es una experiencia transformadora que combina conocimiento, práctica y vivencia. Un proceso integral que te invita a caminar paso a paso hacia mayor equilibrio, plenitud y sentido en tu vida.</p>
                   </div>

@@ -8,8 +8,14 @@ const posts = [
     },
     {
         image: "/vista-frontal-mujer-meditando-en-estera.jpg",
-        title: "Talleres de manejo creativo de las emociones",
+        title: "Talleres para el manejo creativo de las emociones",
         to: "talleres-manejo-creativo-emociones",
+        intro: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus natus aspernatur quibusdam molestiae fugiat quod eligendi. Et quia odit odio sapiente, voluptatibus sit ea, qui facilis nihil expedita ipsa ut?'
+    },
+    {
+        image: "/vista-frontal-mujer-meditando-en-estera.jpg",
+        title: "Camino Vital",
+        to: "camino-vital",
         intro: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus natus aspernatur quibusdam molestiae fugiat quod eligendi. Et quia odit odio sapiente, voluptatibus sit ea, qui facilis nihil expedita ipsa ut?'
     },
     {
@@ -20,10 +26,10 @@ const posts = [
     },
     {
         image: "/vista-frontal-mujer-meditando-en-estera.jpg",
-        title: "Retiro Conexión Vital",
+        title: "Retiro conexión vital",
         to: "retiro-conexion-vital",
         intro: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus natus aspernatur quibusdam molestiae fugiat quod eligendi. Et quia odit odio sapiente, voluptatibus sit ea, qui facilis nihil expedita ipsa ut?'
-    }
+    },
 ]
 </script>
 
@@ -38,7 +44,7 @@ const posts = [
 
             <div class="mt-32">
                 <div class="grid grid-cols-1 xl:grid-cols-2 gap-10">
-                    <ServicesTeaser v-for="(service, index) in posts" :key="index" :service="service" />
+                    <ServicesTeaser v-for="(service, index) in posts" :key="index" :service="service" :class="{ 'xl:col-span-2': 2 === index}" />
                 </div>
             </div>
         </div>

@@ -8,11 +8,11 @@
       <div class="container px-5 mx-auto lg:px-20">
         <article class="grid grid-cols-1 gap-10 lg:gap-20 lg:grid-cols-5">
           <div class="relative lg:col-span-2">
-            <div class="flex items-center lg:sticky lg:top-5">
+            <div class="flex items-center lg:sticky lg:top-32">
               <div class="space-y-5">
                 <div class="relative mt-16 isolate">
                   <img src="/home-10.png" alt=""
-                    class="object-cover object-top w-full overflow-hidden lg:object-center aspect-square rounded-4xl group-hover:opacity-75 lg:aspect-5/7 drop-shadow-2xl drop-shadow-muted">
+                    class="object-cover object-top w-full overflow-hidden lg:object-center aspect-square rounded-4xl group-hover:opacity-75 lg:aspect-3/4 drop-shadow-2xl drop-shadow-muted">
                 </div>
               </div>
             </div>
