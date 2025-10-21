@@ -44,6 +44,7 @@ const pastEvents = computed(() =>
     .sort((a, b) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime())
 )
 
+
 const formatDate = (iso: string) =>
   new Intl.DateTimeFormat('es-CO', {
     weekday: 'short',
