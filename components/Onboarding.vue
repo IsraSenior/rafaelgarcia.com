@@ -454,7 +454,7 @@ function feedbackFor(v: Variable) {
 <template>
   <div v-if="store.openOnboarding">
     <div id="dialog" aria-labelledby="dialog-title"
-      class="fixed inset-0 overflow-y-auto bg-transparent size-auto max-h-none max-w-none backdrop:bg-transparent">
+      class="fixed inset-0 overflow-y-auto bg-transparent size-auto max-h-none max-w-none backdrop:bg-transparent z-20">
       <div
         class="fixed inset-0 transition-opacity bg-primary/75 data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in">
       </div>

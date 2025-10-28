@@ -1,292 +1,411 @@
-<script setup lang="ts">
-import { computed, ref } from 'vue'
-import { eventsCatalog } from '~/data/events'
-import type { EventFormatType, EventPriceType } from '~/data/events'
+<script setup>
+const config = useRuntimeConfig()
 
-type FilterValue<T extends string> = 'all' | T
-
-const priceFilters: { label: string; value: FilterValue<EventPriceType> }[] = [
-  { label: 'Todos', value: 'all' },
-  { label: 'Gratuitos', value: 'free' },
-  { label: 'De pago', value: 'paid' },
-]
-
-const formatFilters: { label: string; value: FilterValue<EventFormatType> }[] = [
-  { label: 'Todos', value: 'all' },
-  { label: 'Presenciales', value: 'in-person' },
-  { label: 'Virtuales', value: 'online' },
-]
-
-const selectedPrice = ref<FilterValue<EventPriceType>>('all')
-const selectedFormat = ref<FilterValue<EventFormatType>>('all')
-
-const now = computed(() => new Date())
-
-const filteredEvents = computed(() => {
-  return eventsCatalog
-    .filter((event) =>
-      selectedPrice.value === 'all' ? true : event.priceType === selectedPrice.value
-    )
-    .filter((event) =>
-      selectedFormat.value === 'all' ? true : event.format === selectedFormat.value
-    )
+// SEO Meta Tags
+useSeoMeta({
+  title: 'Eventos y Talleres de Transformación Personal | Rafael García',
+  description: 'Descubre próximos talleres, retiros y conferencias sobre transformación personal, respiración holotropica, coaching ontológico y bienestar emocional. Eventos presenciales y virtuales.',
+  ogTitle: 'Eventos y Talleres de Transformación Personal | Rafael García',
+  ogDescription: 'Talleres, retiros y conferencias sobre transformación personal, respiración holotropica y bienestar emocional.',
+  ogImage: `${config.public.siteUrl}/home-5.png`,
+  ogUrl: `${config.public.siteUrl}/eventos`,
+  ogType: 'website',
+  ogLocale: 'es_CO',
+  twitterCard: 'summary_large_image',
+  twitterTitle: 'Eventos y Talleres de Transformación Personal | Rafael García',
+  twitterDescription: 'Talleres, retiros y conferencias sobre transformación personal y bienestar emocional.',
+  twitterImage: `${config.public.siteUrl}/home-5.png`,
+  keywords: 'eventos desarrollo personal, talleres transformación, retiros bienestar, respiración holotropica, conferencias Rafael García, eventos Colombia'
 })
 
-const upcomingEvents = computed(() =>
-  [...filteredEvents.value]
-    .filter((event) => new Date(event.startDate) >= now.value)
-    .sort((a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime())
-)
+useHead({
+  htmlAttrs: {
+    lang: 'es'
+  },
+  link: [
+    {
+      rel: 'canonical',
+      href: `${config.public.siteUrl}/eventos`
+    }
+  ]
+})
 
-const pastEvents = computed(() =>
-  [...filteredEvents.value]
-    .filter((event) => new Date(event.startDate) < now.value)
-    .sort((a, b) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime())
-)
+const { data: eventsData, pending, error } = await useFetch('/api/events', {
+  query: {
+    upcoming: 'true',
+    fields: '*,image.*'
+  }
+})
 
+// Filtros reactivos
+const selectedPricing = ref('all') // all, free, paid
+const selectedFormat = ref('all') // all, in_person, virtual, hybrid
 
-const formatDate = (iso: string) =>
-  new Intl.DateTimeFormat('es-CO', {
-    weekday: 'short',
+// Eventos con filtros aplicados
+const events = computed(() => eventsData.value?.data || [])
+
+const filteredEvents = computed(() => {
+  return events.value.filter(event => {
+    // Filtro por precio
+    if (selectedPricing.value !== 'all') {
+      if (selectedPricing.value === 'free' && event.pricing_type !== 'free') return false
+      if (selectedPricing.value === 'paid' && event.pricing_type !== 'paid') return false
+    }
+
+    // Filtro por formato
+    if (selectedFormat.value !== 'all' && event.format !== selectedFormat.value) {
+      return false
+    }
+
+    return true
+  })
+})
+
+const featuredEvents = computed(() => filteredEvents.value.filter(e => e.featured))
+const upcomingEvents = computed(() => filteredEvents.value.filter(e => !e.featured))
+
+// Función para formatear fechas
+const formatDate = (dateString) => {
+  const date = new Date(dateString)
+  return new Intl.DateTimeFormat('es-CO', {
     day: 'numeric',
     month: 'long',
-  }).format(new Date(iso))
-
-const formatTimeRange = (startIso: string, endIso: string) => {
-  const formatter = new Intl.DateTimeFormat('es-CO', {
+    year: 'numeric',
     hour: '2-digit',
-    minute: '2-digit',
-  })
+    minute: '2-digit'
+  }).format(date)
+}
 
-  return `${formatter.format(new Date(startIso))} — ${formatter.format(new Date(endIso))}`
+// Función para formatear precio
+const formatPrice = (price) => {
+  if (!price || price === 0) return 'Gratis'
+  const formatted = new Intl.NumberFormat('es-CO', {
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0
+  }).format(price)
+  return `$${formatted} COP`
+}
+
+// Función para obtener el badge del tipo de evento
+const getEventTypeBadge = (type) => {
+  return type === 'rafael_garcia' ? 'Rafael García' : 'Evento Colaborativo'
+}
+
+// Función para obtener el badge del formato
+const getFormatBadge = (format) => {
+  const formats = {
+    'in_person': 'Presencial',
+    'virtual': 'Virtual',
+    'hybrid': 'Híbrido'
+  }
+  return formats[format] || format
 }
 </script>
 
 <template>
-  <div class="gradient-muted">
-    <section class="py-16 md:pt-24 md:pb-12">
-      <div class="container px-5 mx-auto lg:px-20">
-        <header class="max-w-3xl mx-auto text-center space-y-5">
-          <p class="uppercase tracking-[0.3em] text-sm text-primary/70">Agenda</p>
-          <h1 class="title title--headline text-primary">
-            Encuentra el próximo espacio para tu
-            <b>
-              <i>
-                transformación
-                <u class="decoration-secondary-crecer">personal</u>
-              </i>
-            </b>
+  <div>
+    <!-- Hero Section -->
+    <section class="mt-16 md:mt-24 lg:mt-32">
+      <div class="container mx-auto px-5 md:px-10 lg:px-20">
+        <div class="text-center mb-12 md:mb-16">
+          <h1 class="title title--headline text-primary mb-6">
+            Eventos y Talleres
           </h1>
-          <p class="text-muted">
-            Explora experiencias presenciales y virtuales. Usa los filtros para descubrir eventos
-            gratuitos, propuestas de inversión o espacios específicos según tu forma de participación.
+          <p class="paragraph max-w-3xl mx-auto">
+            Únete a nuestros talleres, retiros y conferencias diseñados para acompañarte en tu proceso de
+            <span class="font-semibold text-secondary-crecer">transformación personal</span> y
+            <span class="font-semibold text-secondary-sanar">bienestar emocional</span>.
           </p>
-        </header>
-
-        <div class="mt-12 grid gap-6 lg:grid-cols-[1fr_auto] lg:items-start">
-          <div class="flex flex-wrap justify-center gap-3">
-            <template v-for="filter in priceFilters" :key="filter.value">
-              <button
-                type="button"
-                class="px-5 py-2 rounded-full border transition-colors text-sm font-medium"
-                :class="
-                  selectedPrice === filter.value
-                    ? 'border-primary bg-primary text-white shadow-md'
-                    : 'border-primary/30 bg-white text-primary hover:border-primary hover:bg-primary/10'
-                "
-                @click="selectedPrice = filter.value"
-              >
-                {{ filter.label }}
-              </button>
-            </template>
-          </div>
-          <div class="flex flex-wrap justify-center gap-3">
-            <template v-for="filter in formatFilters" :key="filter.value">
-              <button
-                type="button"
-                class="px-5 py-2 rounded-full border transition-colors text-sm font-medium"
-                :class="
-                  selectedFormat === filter.value
-                    ? 'border-secondary-sanar bg-secondary-sanar text-white shadow-md'
-                    : 'border-secondary-sanar/30 bg-white text-secondary-sanar hover:border-secondary-sanar hover:bg-secondary-sanar/10'
-                "
-                @click="selectedFormat = filter.value"
-              >
-                {{ filter.label }}
-              </button>
-            </template>
-          </div>
         </div>
-
-        <section class="mt-20 space-y-10">
-          <header class="flex items-center justify-between flex-wrap gap-5">
-            <div>
-              <h2 class="text-2xl font-semibold text-primary">Próximos eventos</h2>
-              <p class="text-muted text-sm">
-                Reserva tu cupo en los encuentros que sucederán pronto.
-              </p>
-            </div>
-            <span class="rounded-full bg-white px-4 py-1 text-sm text-primary/70 border border-primary/10">
-              {{ upcomingEvents.length }} en agenda
-            </span>
-          </header>
-
-          <div v-if="upcomingEvents.length" class="grid gap-8">
-            <article
-              v-for="event in upcomingEvents"
-              :key="event.id"
-              class="relative bg-white rounded-4xl shadow-lg shadow-primary/5 border border-primary/10 overflow-hidden"
-            >
-              <div class="grid gap-8 lg:grid-cols-[2fr_3fr]">
-                <div class="relative h-full">
-                  <img
-                    :src="event.image"
-                    :alt="event.title"
-                    class="object-cover w-full h-full min-h-[220px] lg:min-h-[260px]"
-                  />
-                  <span
-                    class="absolute top-6 left-6 px-4 py-1 rounded-full text-xs font-semibold uppercase tracking-[0.2em] text-white"
-                    :class="event.priceType === 'free' ? 'bg-secondary-sanar' : 'bg-secondary-crecer'"
-                  >
-                    {{ event.priceType === 'free' ? 'Gratuito' : 'De pago' }}
-                  </span>
-                </div>
-
-                <div class="p-8 flex flex-col gap-6">
-                  <header class="space-y-3">
-                    <div class="flex flex-wrap items-center gap-3 text-sm text-primary/70">
-                      <span class="inline-flex items-center gap-2">
-                        <svg class="w-5 h-5 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                          <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-                          <line x1="16" y1="2" x2="16" y2="6" />
-                          <line x1="8" y1="2" x2="8" y2="6" />
-                          <line x1="3" y1="10" x2="21" y2="10" />
-                        </svg>
-                        {{ formatDate(event.startDate) }}
-                      </span>
-                      <span class="hidden w-px h-4 bg-primary/20 md:inline-block" aria-hidden="true"></span>
-                      <span class="inline-flex items-center gap-2">
-                        <svg class="w-5 h-5 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                          <circle cx="12" cy="12" r="9" />
-                          <polyline points="12 7 12 12 15 15" />
-                        </svg>
-                        {{ formatTimeRange(event.startDate, event.endDate) }}
-                      </span>
-                      <span class="hidden w-px h-4 bg-primary/20 md:inline-block" aria-hidden="true"></span>
-                      <span class="inline-flex items-center gap-2">
-                        <svg class="w-5 h-5 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                          <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z" />
-                          <circle cx="12" cy="10" r="3" />
-                        </svg>
-                        {{ event.location }}
-                      </span>
-                    </div>
-                    <NuxtLink :to="`/eventos/${event.id}`" class="group inline-block">
-                      <h3 class="text-2xl font-semibold text-primary group-hover:text-secondary-crecer transition-colors">
-                        {{ event.title }}
-                      </h3>
-                    </NuxtLink>
-                    <p class="text-muted">
-                      {{ event.shortDescription }}
-                    </p>
-                  </header>
-
-                  <footer class="flex flex-wrap items-center justify-between gap-5 mt-auto">
-                    <div class="flex items-center gap-3">
-                      <img
-                        v-if="event.host"
-                        :src="event.host.avatar"
-                        :alt="event.host.name"
-                        class="w-12 h-12 rounded-full object-cover border border-primary/10"
-                      />
-                      <div>
-                        <p class="text-sm font-semibold text-primary">
-                          {{ event.host?.name || 'Equipo Rafael García' }}
-                        </p>
-                        <p class="text-xs text-muted">{{ event.host?.role || 'Facilitación' }}</p>
-                      </div>
-                    </div>
-                    <div class="flex items-center gap-3 flex-wrap">
-                      <span
-                        v-if="event.priceLabel"
-                        class="px-4 py-1 rounded-full bg-primary/5 text-sm text-primary border border-primary/10"
-                      >
-                        {{ event.priceLabel }}
-                      </span>
-                      <NuxtLink :to="`/eventos/${event.id}`" class="btn crecer">
-                        <span>Ver detalle</span>
-                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                          <line x1="7" y1="17" x2="17" y2="7" />
-                          <polyline points="7 7 17 7 17 17" />
-                        </svg>
-                      </NuxtLink>
-                    </div>
-                  </footer>
-                </div>
-              </div>
-            </article>
-          </div>
-          <p v-else class="text-center text-muted py-10 bg-white/70 rounded-3xl border border-primary/10">
-            No encontramos eventos próximos con los filtros actuales. Ajusta tu búsqueda o revisa los
-            eventos pasados.
-          </p>
-        </section>
-
-        <section class="mt-24 space-y-10">
-          <header class="flex items-center justify-between flex-wrap gap-5">
-            <div>
-              <h2 class="text-2xl font-semibold text-primary">Eventos pasados</h2>
-              <p class="text-muted text-sm">
-                Revive los encuentros recientes y contáctanos para nuevas ediciones.
-              </p>
-            </div>
-            <span class="rounded-full bg-white px-4 py-1 text-sm text-primary/70 border border-primary/10">
-              {{ pastEvents.length }} encuentros realizados
-            </span>
-          </header>
-
-          <div v-if="pastEvents.length" class="grid gap-8 md:grid-cols-2">
-            <article
-              v-for="event in pastEvents"
-              :key="event.id"
-              class="relative bg-white rounded-4xl shadow-lg shadow-primary/5 border border-primary/10 overflow-hidden flex flex-col"
-            >
-              <img
-                :src="event.image"
-                :alt="event.title"
-                class="object-cover w-full h-52"
-              />
-              <div class="p-8 flex flex-col gap-4">
-                <div class="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.2em] text-primary/60">
-                  <span>{{ formatDate(event.startDate) }}</span>
-                  <span class="w-1 h-1 rounded-full bg-primary/30" aria-hidden="true"></span>
-                  <span>{{ event.format === 'online' ? 'Virtual' : 'Presencial' }}</span>
-                  <span class="w-1 h-1 rounded-full bg-primary/30" aria-hidden="true"></span>
-                  <span>{{ event.priceType === 'free' ? 'Gratuito' : 'De pago' }}</span>
-                </div>
-                <NuxtLink :to="`/eventos/${event.id}`" class="group inline-block">
-                  <h3 class="text-xl font-semibold text-primary group-hover:text-secondary-crecer transition-colors">
-                    {{ event.title }}
-                  </h3>
-                </NuxtLink>
-                <p class="text-muted text-sm">
-                  {{ event.shortDescription }}
-                </p>
-                <NuxtLink :to="`/eventos/${event.id}`" class="mt-auto inline-flex items-center gap-2 text-primary font-semibold">
-                  <span>Ver resumen del evento</span>
-                  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <line x1="5" y1="12" x2="19" y2="12" />
-                    <polyline points="12 5 19 12 12 19" />
-                  </svg>
-                </NuxtLink>
-              </div>
-            </article>
-          </div>
-          <p v-else class="text-center text-muted py-10 bg-white/70 rounded-3xl border border-primary/10">
-            Aún no tenemos eventos pasados según tus filtros. ¡Pronto compartiremos más historias!
-          </p>
-        </section>
       </div>
     </section>
+
+    <!-- Filtros -->
+    <section v-if="!pending && !error && events.length > 0" class="pb-8 md:pb-12">
+      <div class="container mx-auto px-5 md:px-10 lg:px-20">
+        <div class="bg-white rounded-[40px] p-6 md:p-8 shadow-sm">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+            <!-- Filtro por Precio -->
+            <div>
+              <label class="block text-sm font-semibold text-primary mb-3">
+                Precio
+              </label>
+              <div class="flex flex-wrap gap-2">
+                <button
+                  @click="selectedPricing = 'all'"
+                  :class="[
+                    'px-4 py-2 rounded-full text-sm font-semibold transition-all',
+                    selectedPricing === 'all'
+                      ? 'bg-primary text-white'
+                      : 'bg-muted text-paragraph hover:bg-primary/10'
+                  ]"
+                >
+                  Todos
+                </button>
+                <button
+                  @click="selectedPricing = 'free'"
+                  :class="[
+                    'px-4 py-2 rounded-full text-sm font-semibold transition-all',
+                    selectedPricing === 'free'
+                      ? 'bg-secondary-sanar text-white'
+                      : 'bg-muted text-paragraph hover:bg-secondary-sanar/10'
+                  ]"
+                >
+                  Gratis
+                </button>
+                <button
+                  @click="selectedPricing = 'paid'"
+                  :class="[
+                    'px-4 py-2 rounded-full text-sm font-semibold transition-all',
+                    selectedPricing === 'paid'
+                      ? 'bg-secondary-crecer text-white'
+                      : 'bg-muted text-paragraph hover:bg-secondary-crecer/10'
+                  ]"
+                >
+                  De pago
+                </button>
+              </div>
+            </div>
+
+            <!-- Filtro por Formato -->
+            <div>
+              <label class="block text-sm font-semibold text-primary mb-3">
+                Formato
+              </label>
+              <div class="flex flex-wrap gap-2">
+                <button
+                  @click="selectedFormat = 'all'"
+                  :class="[
+                    'px-4 py-2 rounded-full text-sm font-semibold transition-all',
+                    selectedFormat === 'all'
+                      ? 'bg-primary text-white'
+                      : 'bg-muted text-paragraph hover:bg-primary/10'
+                  ]"
+                >
+                  Todos
+                </button>
+                <button
+                  @click="selectedFormat = 'in_person'"
+                  :class="[
+                    'px-4 py-2 rounded-full text-sm font-semibold transition-all',
+                    selectedFormat === 'in_person'
+                      ? 'bg-secondary-estabilizar text-white'
+                      : 'bg-muted text-paragraph hover:bg-secondary-estabilizar/10'
+                  ]"
+                >
+                  Presencial
+                </button>
+                <button
+                  @click="selectedFormat = 'virtual'"
+                  :class="[
+                    'px-4 py-2 rounded-full text-sm font-semibold transition-all',
+                    selectedFormat === 'virtual'
+                      ? 'bg-secondary-sanar text-white'
+                      : 'bg-muted text-paragraph hover:bg-secondary-sanar/10'
+                  ]"
+                >
+                  Virtual
+                </button>
+                <button
+                  @click="selectedFormat = 'hybrid'"
+                  :class="[
+                    'px-4 py-2 rounded-full text-sm font-semibold transition-all',
+                    selectedFormat === 'hybrid'
+                      ? 'bg-secondary-crecer text-white'
+                      : 'bg-muted text-paragraph hover:bg-secondary-crecer/10'
+                  ]"
+                >
+                  Híbrido
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Resultados -->
+          <div class="mt-4 pt-4 border-t border-muted">
+            <p class="text-sm text-paragraph">
+              <span class="font-semibold text-primary">{{ filteredEvents.length }}</span>
+              {{ filteredEvents.length === 1 ? 'evento encontrado' : 'eventos encontrados' }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Loading State -->
+    <section v-if="pending" class="py-16">
+      <div class="container mx-auto px-5 md:px-10 lg:px-20">
+        <div class="text-center">
+          <p class="paragraph">Cargando eventos...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Error State -->
+    <section v-else-if="error" class="py-16">
+      <div class="container mx-auto px-5 md:px-10 lg:px-20">
+        <div class="bg-secondary-estabilizar/10 border-l-4 border-secondary-estabilizar rounded-lg p-6">
+          <p class="text-secondary-estabilizar font-semibold">Error al cargar los eventos</p>
+          <p class="paragraph mt-2">Por favor, intenta nuevamente más tarde.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Eventos Destacados -->
+    <section v-else-if="featuredEvents.length > 0" class="pb-12 md:pb-16">
+      <div class="container mx-auto px-5 md:px-10 lg:px-20">
+        <h2 class="title title--element text-primary mb-8 md:mb-12">
+          Eventos Destacados
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <NuxtLink
+            v-for="event in featuredEvents"
+            :key="event.id"
+            :to="`/eventos/${event.slug}`"
+            class="group bg-white rounded-[40px] overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300"
+          >
+            <!-- Imagen -->
+            <div class="relative h-64 bg-gradient-to-r from-secondary-sanar/20 to-secondary-crecer/20 overflow-hidden">
+              <img
+                v-if="event.image"
+                :src="`${config.public.directusUrl}/assets/${event.image.id}`"
+                :alt="event.title"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div v-else class="w-full h-full flex items-center justify-center">
+                <span class="text-6xl">📅</span>
+              </div>
+
+              <!-- Badges -->
+              <div class="absolute top-4 left-4 flex flex-col gap-2">
+                <span
+                  v-if="event.pricing_type === 'free'"
+                  class="inline-block bg-secondary-sanar text-white text-xs font-semibold px-3 py-1 rounded-full"
+                >
+                  Gratis
+                </span>
+                <span
+                  class="inline-block bg-white/90 text-primary text-xs font-semibold px-3 py-1 rounded-full"
+                >
+                  {{ getFormatBadge(event.format) }}
+                </span>
+              </div>
+            </div>
+
+            <!-- Contenido -->
+            <div class="p-6 md:p-8">
+              <div class="flex items-center gap-2 text-sm text-paragraph mb-3">
+                <span>📅</span>
+                <span>{{ formatDate(event.date_start) }}</span>
+              </div>
+
+              <h3 class="title title--element text-primary mb-3 line-clamp-2">
+                {{ event.title }}
+              </h3>
+
+              <div class="flex items-center justify-between mt-4 pt-4 border-t border-muted">
+                <span class="text-sm font-semibold text-paragraph">
+                  {{ getEventTypeBadge(event.event_type) }}
+                </span>
+                <span class="text-lg font-bold text-secondary-crecer">
+                  {{ formatPrice(event.price) }}
+                </span>
+              </div>
+
+              <!-- Cupos disponibles -->
+              <div v-if="event.capacity > 0" class="mt-4">
+                <div v-if="event.is_full" class="text-sm text-secondary-estabilizar font-semibold">
+                  Cupos agotados
+                </div>
+                <div v-else class="text-sm text-secondary-sanar">
+                  {{ event.available_spots }} cupos disponibles
+                </div>
+              </div>
+            </div>
+          </NuxtLink>
+        </div>
+      </div>
+    </section>
+
+    <!-- Próximos Eventos -->
+    <section v-if="upcomingEvents.length > 0" class="py-12 md:py-16 bg-white">
+      <div class="container mx-auto px-5 md:px-10 lg:px-20">
+        <h2 class="title title--element text-primary mb-8 md:mb-12">
+          Próximos Eventos
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <NuxtLink
+            v-for="event in upcomingEvents"
+            :key="event.id"
+            :to="`/eventos/${event.slug}`"
+            class="group bg-gradient-to-r from-secondary-sanar/5 to-secondary-crecer/5 rounded-[40px] overflow-hidden hover:shadow-md transition-all duration-300"
+          >
+            <!-- Imagen -->
+            <div class="relative h-48 bg-gradient-to-r from-secondary-sanar/20 to-secondary-crecer/20 overflow-hidden">
+              <img
+                v-if="event.image"
+                :src="`${config.public.directusUrl}/assets/${event.image.id}`"
+                :alt="event.title"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div v-else class="w-full h-full flex items-center justify-center">
+                <span class="text-5xl">📅</span>
+              </div>
+
+              <!-- Badge formato -->
+              <div class="absolute top-4 right-4">
+                <span class="inline-block bg-white/90 text-primary text-xs font-semibold px-3 py-1 rounded-full">
+                  {{ getFormatBadge(event.format) }}
+                </span>
+              </div>
+            </div>
+
+            <!-- Contenido -->
+            <div class="p-6">
+              <div class="flex items-center gap-2 text-sm text-paragraph mb-2">
+                <span>📅</span>
+                <span>{{ formatDate(event.date_start) }}</span>
+              </div>
+
+              <h3 class="font-literata text-xl text-primary mb-3 line-clamp-2 font-light">
+                {{ event.title }}
+              </h3>
+
+              <div class="flex items-center justify-between">
+                <span class="text-lg font-bold text-secondary-crecer">
+                  {{ formatPrice(event.price) }}
+                </span>
+              </div>
+            </div>
+          </NuxtLink>
+        </div>
+      </div>
+    </section>
+
+    <!-- Empty State -->
+    <section v-if="!pending && !error && events.length === 0" class="py-16 md:py-24">
+      <div class="container mx-auto px-5 md:px-10 lg:px-20">
+        <div class="text-center max-w-2xl mx-auto">
+          <div class="text-6xl mb-6">📅</div>
+          <h3 class="title title--element text-primary mb-4">
+            No hay eventos programados
+          </h3>
+          <p class="paragraph">
+            Estamos preparando nuevos talleres y eventos. Suscríbete a nuestro boletín para recibir notificaciones cuando haya nuevas fechas disponibles.
+          </p>
+          <NuxtLink to="/contacto" class="btn primary mt-8">
+            Contáctanos
+          </NuxtLink>
+        </div>
+      </div>
+    </section>
+
+    <!-- Spacing before EndSection -->
+    <div class="py-12 md:py-16"></div>
+
+    <!-- End Section -->
+    <EndSection />
   </div>
 </template>

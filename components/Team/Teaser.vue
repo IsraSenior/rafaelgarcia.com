@@ -1,5 +1,5 @@
 <script setup>
-defineProps({
+const props = defineProps({
     name: {
         type: String,
         required: true
@@ -10,20 +10,61 @@ defineProps({
     },
     image: {
         type: String,
-        required: true
+        required: false,
+        default: null
     },
-    text: {
+    bio: {
         type: String,
         required: false
     }
 })
 
+const { getAssetUrl, isUUID, isURL } = useDirectusAsset()
 const more = ref(false)
+
+// Obtener la URL de la imagen o usar fallback
+const imageUrl = computed(() => {
+    if (!props.image) return '/vista-frontal-mujer-meditando-en-estera.jpg'
+
+    // Si es UUID, construir URL de Directus
+    if (isUUID(props.image)) {
+        return getAssetUrl(props.image, { width: 800, height: 800, fit: 'cover', quality: 80 })
+    }
+
+    // Si es URL, retornarla tal cual
+    if (isURL(props.image)) {
+        return props.image
+    }
+
+    // Fallback
+    return '/vista-frontal-mujer-meditando-en-estera.jpg'
+})
+
+// Determinar si la imagen es de Directus para usar provider
+const isDirectusAsset = computed(() => isUUID(props.image))
 </script>
 
 <template>
     <div class="relative overflow-hidden bg-white rounded-4xl drop-shadow-xl drop-shadow-primary/5 isolate">
-        <img class="object-cover object-center w-full aspect-square h-96" :src="image" :alt="name" />
+        <NuxtImg
+            v-if="isDirectusAsset"
+            provider="directus"
+            :src="`/assets/${props.image}`"
+            :alt="name"
+            class="object-cover object-center w-full aspect-square h-96"
+            width="800"
+            height="800"
+            fit="cover"
+            quality="80"
+            loading="lazy"
+        />
+        <img
+            v-else
+            class="object-cover object-center w-full aspect-square h-96"
+            :src="imageUrl"
+            :alt="name"
+            loading="lazy"
+        />
         <div class="flex flex-col items-start justify-between p-10">
             <h5 class="w-full mb-2 overflow-hidden title title--element text-primary line-clamp-2">
                 {{ name }}
@@ -32,8 +73,8 @@ const more = ref(false)
                 {{ title }}
             </span>
 
-            <div v-if="more" class="absolute inset-0 h-full p-10 overflow-y-auto whitespace-pre-wrap bg-white content"
-                v-html="text">
+            <div v-if="more" class="absolute inset-0 h-full p-10 overflow-y-auto bg-white content"
+                v-html="bio">
             </div>
 
             <button @click.prevent="more = !more"
@@ -44,17 +85,6 @@ const more = ref(false)
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                 </svg>
             </button>
-            <div class="flex items-center justify-start gap-4 mt-4">
-                <a href="#">
-                    <img src="/linkedin-svgrepo-com.svg" class="size-4" alt="">
-                </a>
-                <a href="#">
-                    <img src="/instagram-svgrepo-com.svg" class="size-4" alt="">
-                </a>
-                <a href="#">
-                    <img src="/twitter-svgrepo-com.svg" class="size-4" alt="">
-                </a>
-            </div>
         </div>
     </div>
 </template>
