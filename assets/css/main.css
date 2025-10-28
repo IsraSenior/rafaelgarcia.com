@@ -19,6 +19,9 @@
 }
 
 @layer base {
+    :root {
+        scroll-padding-top: 100px;
+    }
     html {
         @apply scroll-smooth;
     }

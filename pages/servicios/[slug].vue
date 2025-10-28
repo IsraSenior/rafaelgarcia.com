@@ -170,6 +170,7 @@ useHead({
           <section
             v-for="(module, index) in modules"
             :key="index"
+            :id="module.slug"
             class="grid items-start gap-10 lg:gap-40 lg:grid-cols-5 py-16"
             :class="{ 'lg:flex-row-reverse': index % 2 === 1 }"
           >

@@ -1,5 +1,30 @@
 <script setup>
+const { getCaminoVitalModules, getServices } = useDirectus()
 
+// Fetch Camino Vital modules
+const { data: caminoVitalModules } = await useAsyncData('footer-camino-vital-modules', () => getCaminoVitalModules())
+
+// Fetch services and separate them by category
+const { data: allServices } = await useAsyncData('footer-services', () => getServices())
+
+// Filter services by type/category
+const talleres = computed(() => {
+  if (!allServices.value) return []
+  return allServices.value.filter(service =>
+    service.title?.toLowerCase().includes('respiración') ||
+    service.title?.toLowerCase().includes('emoción') ||
+    service.title?.toLowerCase().includes('taller')
+  ).slice(0, 2)
+})
+
+const serviciosIndividuales = computed(() => {
+  if (!allServices.value) return []
+  return allServices.value.filter(service =>
+    service.title?.toLowerCase().includes('sesión') ||
+    service.title?.toLowerCase().includes('retiro') ||
+    service.title?.toLowerCase().includes('individual')
+  ).slice(0, 2)
+})
 </script>
 
 <template>
@@ -15,15 +40,13 @@
                 <div clasS="mt-5">
                     <h6 class="title title--element !text-white mb-5">Camino Vital</h6>
                     <ul class="space-y-3">
-                        <li>
-                            <NuxtLink to="/servicios/camino-vital" class="link !text-secondary-estabilizar hover:!text-white">Módulo
-                                Estabilizar</NuxtLink>
-                        </li>
-                        <li>
-                            <NuxtLink to="/servicios/camino-vital" class="link !text-secondary-sanar hover:!text-whiteer">Módulo Sanar</NuxtLink>
-                        </li>
-                        <li>
-                            <NuxtLink to="/servicios/camino-vital" class="link !text-secondary-crecer hover:!text-white">Módulo Crecer</NuxtLink>
+                        <li v-for="module in caminoVitalModules" :key="module.id">
+                            <NuxtLink
+                                :to="`/servicios/camino-vital#${module.slug}`"
+                                :class="`link !text-secondary-${module.color_class} hover:!text-white`"
+                            >
+                                {{ module.name }}
+                            </NuxtLink>
                         </li>
                     </ul>
                 </div>
@@ -31,13 +54,13 @@
                     <div clasS="mt-5">
                         <h6 class="title title--element !text-white mb-5">Talleres</h6>
                         <ul class="space-y-3">
-                            <li>
-                                <NuxtLink to="/servicios" class="link !text-white hover:!text-secondary-crecer">Respiración
-                                    Holotrópica</NuxtLink>
-                            </li>
-                            <li>
-                                <NuxtLink to="/servicios" class="link !text-white hover:!text-secondary-crecer">Manejo de
-                                    emociones</NuxtLink>
+                            <li v-for="taller in talleres" :key="taller.id">
+                                <NuxtLink
+                                    :to="`/servicios/${taller.slug}`"
+                                    class="link !text-white hover:!text-secondary-crecer"
+                                >
+                                    {{ taller.title }}
+                                </NuxtLink>
                             </li>
                         </ul>
                     </div>
@@ -46,11 +69,13 @@
                     <div clasS="mt-5">
                         <h6 class="title title--element !text-white mb-5">Servicios</h6>
                         <ul class="space-y-3">
-                            <li>
-                                <NuxtLink to="/servicios" class="link !text-white hover:!text-secondary-crecer">Sesiones individuales</NuxtLink>
-                            </li>
-                            <li>
-                                <NuxtLink to="/servicios" class="link !text-white hover:!text-secondary-crecer">Retiro conexión vital</NuxtLink>
+                            <li v-for="servicio in serviciosIndividuales" :key="servicio.id">
+                                <NuxtLink
+                                    :to="`/servicios/${servicio.slug}`"
+                                    class="link !text-white hover:!text-secondary-crecer"
+                                >
+                                    {{ servicio.title }}
+                                </NuxtLink>
                             </li>
                         </ul>
                     </div>
