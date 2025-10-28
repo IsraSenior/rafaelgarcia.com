@@ -511,3 +511,173 @@ export const eventRegistrationNotificationTemplate = (data) => {
 </html>
   `
 }
+
+/**
+ * Template: Notificación de test completado (para webmaster)
+ */
+export const testCompletionNotificationTemplate = (data) => {
+  const { firstName, lastName, email, phone, responseId, strongestDimension, weakestDimension, averageScore } = data
+
+  const directusUrl = `https://admin.rafaelgarcia.com.co/admin/content/test_responses/${responseId}`
+
+  return `
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuevo test de diagnóstico completado</title>
+  <style>${baseStyles}</style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Test de Diagnóstico Completado</h1>
+    </div>
+
+    <div class="content">
+      <p>Un usuario ha completado el test de diagnóstico de las 6 dimensiones del ser humano.</p>
+
+      <div class="info-box">
+        <strong>Nombre completo</strong>
+        <p>${firstName} ${lastName}</p>
+      </div>
+
+      <div class="info-box">
+        <strong>Correo electrónico</strong>
+        <p><a href="mailto:${email}">${email}</a></p>
+      </div>
+
+      ${phone ? `
+      <div class="info-box">
+        <strong>Teléfono</strong>
+        <p><a href="tel:${phone}">${phone}</a></p>
+      </div>
+      ` : ''}
+
+      <div class="highlight-box">
+        <strong style="color: #313745; font-size: 18px; display: block; margin-bottom: 15px; font-weight: 600;">
+          Resumen de Resultados
+        </strong>
+        <p style="margin: 8px 0; color: #4e555d;">
+          <strong style="color: #313745; font-weight: 600;">Dimensión más fuerte:</strong> ${strongestDimension}
+        </p>
+        <p style="margin: 8px 0; color: #4e555d;">
+          <strong style="color: #313745; font-weight: 600;">Dimensión a trabajar:</strong> ${weakestDimension}
+        </p>
+        <p style="margin: 8px 0; color: #4e555d;">
+          <strong style="color: #313745; font-weight: 600;">Puntaje promedio:</strong> ${averageScore}%
+        </p>
+      </div>
+
+      <div style="text-align: center; margin: 35px 0;">
+        <a href="${directusUrl}" class="button">
+          Ver respuesta completa en Directus
+        </a>
+      </div>
+
+      <p style="margin-top: 25px; font-size: 14px; color: #4e555d;">
+        <strong>ID de respuesta:</strong> ${responseId}
+      </p>
+    </div>
+
+    <div class="footer">
+      <strong>Rafael García</strong>
+      <p>Transformación y Bienestar Emocional</p>
+      <p style="margin-top: 15px; color: #4e555d; font-size: 12px;">
+        Este correo fue enviado automáticamente desde rafaelgarcia.com.co
+      </p>
+    </div>
+  </div>
+</body>
+</html>
+  `
+}
+
+/**
+ * Template: Confirmación de test completado (para el cliente)
+ */
+export const testCompletionClientTemplate = (data) => {
+  const { firstName, responseId, strongestDimension, weakestDimension, averageScore } = data
+
+  const resultsUrl = `${process.env.NUXT_PUBLIC_SITE_URL || 'https://rafaelgarcia.com.co'}/test/${responseId}`
+
+  return `
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tu test de diagnóstico ha sido completado</title>
+  <style>${baseStyles}</style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>¡Test Completado con Éxito!</h1>
+    </div>
+
+    <div class="content">
+      <p style="font-size: 20px; color: #313745; font-weight: 400; font-family: 'Literata', serif; margin-bottom: 20px;">
+        Hola ${firstName},
+      </p>
+
+      <p>
+        ¡Felicidades por completar el test de diagnóstico de las 6 dimensiones del ser humano!
+        Este es un paso importante en tu camino hacia el <span class="highlight">autoconocimiento</span> y la
+        <span class="highlight">transformación personal</span>.
+      </p>
+
+      <div class="highlight-box">
+        <strong style="color: #313745; font-size: 18px; display: block; margin-bottom: 15px; font-weight: 600;">
+          Resumen de tus Resultados
+        </strong>
+        <p style="margin: 8px 0; color: #4e555d;">
+          <strong style="color: #313745; font-weight: 600;">Tu dimensión más fuerte:</strong> ${strongestDimension}
+        </p>
+        <p style="margin: 8px 0; color: #4e555d;">
+          <strong style="color: #313745; font-weight: 600;">Dimensión para enfocarte:</strong> ${weakestDimension}
+        </p>
+        <p style="margin: 8px 0; color: #4e555d;">
+          <strong style="color: #313745; font-weight: 600;">Tu puntaje general:</strong> ${averageScore}%
+        </p>
+      </div>
+
+      <p>
+        Puedes revisar tus resultados completos, incluyendo el análisis detallado de cada dimensión,
+        recomendaciones personalizadas y gráficas interactivas en cualquier momento.
+      </p>
+
+      <div style="text-align: center; margin: 35px 0;">
+        <a href="${resultsUrl}" class="button">
+          Ver mis resultados completos
+        </a>
+      </div>
+
+      <p style="margin-top: 30px; padding: 20px; background-color: #f8f9fa; border-radius: 8px; font-size: 16px; line-height: 1.6;">
+        <strong style="color: #313745; display: block; margin-bottom: 8px;">¿Qué sigue ahora?</strong>
+        <span style="color: #4e555d;">
+          Basándonos en tus resultados, podemos ayudarte a crear un plan personalizado de transformación.
+          Si deseas profundizar en tu proceso de crecimiento personal, no dudes en contactarme.
+        </span>
+      </p>
+
+      <div style="text-align: center; margin: 35px 0;">
+        <a href="https://rafaelgarcia.com.co/contacto" class="button" style="background-color: #313745;">
+          Agendar una sesión
+        </a>
+      </div>
+    </div>
+
+    <div class="footer">
+      <strong>Rafael García</strong>
+      <p>Psicólogo especialista en transformación y bienestar emocional</p>
+      <p style="margin-top: 15px; color: #4e555d; font-size: 12px;">
+        Este correo fue enviado automáticamente desde rafaelgarcia.com.co
+      </p>
+    </div>
+  </div>
+</body>
+</html>
+  `
+}

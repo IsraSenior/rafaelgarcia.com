@@ -112,6 +112,16 @@ export const useDirectus = () => {
     }
   };
 
+  const getOnboardingTest = async () => {
+    try {
+      const test = await $fetch('/api/onboarding-test');
+      return test;
+    } catch (error) {
+      console.error('Error fetching onboarding test:', error);
+      return null;
+    }
+  };
+
   return {
     getPosts,
     getPost,
@@ -122,6 +132,7 @@ export const useDirectus = () => {
     getServiceBySlug,
     getCaminoVitalModules,
     getContactOptions,
-    getTestimonials
+    getTestimonials,
+    getOnboardingTest
   };
 };

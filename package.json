@@ -25,7 +25,12 @@
     "directus:forms:setup": "npm run directus:leads:create && npm run directus:subscriptions:create",
     "directus:testimonials:create": "node directus/scripts/19-create-testimonials-collection.js",
     "directus:testimonials:seed": "node directus/scripts/20-seed-testimonials-data.js",
-    "directus:testimonials:setup": "npm run directus:testimonials:create && npm run directus:testimonials:seed"
+    "directus:testimonials:setup": "npm run directus:testimonials:create && npm run directus:testimonials:seed",
+    "directus:onboarding:reset": "node directus/scripts/20-reset-onboarding-test.js",
+    "directus:onboarding:create": "node directus/scripts/21-create-onboarding-test-collection.js",
+    "directus:onboarding:seed": "node directus/scripts/22-seed-onboarding-test-data.js",
+    "directus:onboarding:setup": "npm run directus:onboarding:create && npm run directus:onboarding:seed",
+    "directus:test-responses:create": "node directus/scripts/23-create-test-responses-collection.js"
   },
   "dependencies": {
     "@directus/sdk": "^20.1.0",
